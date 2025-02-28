@@ -18,6 +18,9 @@
   <main>
     <div class="container">
       <section>
+        <p id="choice">ここに日時を表示します</p>
+        <div id="wahaha">わはは</div>
+        <img src="dog.png" alt="わんこ" id="wanko">
       </section>
     </div>
   </main>
@@ -31,6 +34,11 @@
   <script>
     'use strict';
     
+    document.getElementById('choice').textContent = (new Date());
+    
+    document.getElementById('wahaha').textContent = 'おほほ';
+    
+    document.getElementById('wanko').src = 'cat.png';
     
   </script>
 </body>

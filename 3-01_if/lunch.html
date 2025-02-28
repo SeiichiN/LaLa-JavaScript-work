@@ -18,6 +18,7 @@
   <main>
     <div class="container">
       <section>
+        <p id="mes"></p>
       </section>
     </div>
   </main>
@@ -31,6 +32,14 @@
   <script>
     'use strict';
     
+    if (window.confirm('昼ごはんを食べますか？')) {
+      // trueの場合
+      document.getElementById('mes').textContent = 'どうぞ';
+    } else {
+      // そうじゃない場合(=false)
+      document.getElementById('mes').textContent =
+         'お腹がすきませんか？';
+    }
     
   </script>
 </body>

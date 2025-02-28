@@ -18,6 +18,7 @@
   <main>
     <div class="container">
       <section>
+        <p>あなたの好きな食べ物は<span id="food"></span>です。</p>
       </section>
     </div>
   </main>
@@ -31,7 +32,9 @@
   <script>
     'use strict';
     
-    
+    let myLikeFood = window.prompt('好きな食べ物は何ですか？');
+    console.log(myLikeFood);  // 確認用
+    document.getElementById('food').textContent = myLikeFood;
   </script>
 </body>
 </html>
