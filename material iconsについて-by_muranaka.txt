@@ -1,0 +1,5 @@
+英語ですが、掲示板サイトにvs codeの管理者からの投稿でMaterial Themeの作成者をbanして全ての拡張機能を削除したと投稿
+https://www.reddit.com/r/vscode/comments/1iy571t/lost_material_theme/
+
+（僕たちがuninstallした）Philipp kiefさんのMaterial Iconsは安全ですよね？の質問に「別の作成者によるもの、何か問題があれば
+対応する」と返信している、それ以降特に何もなくマーケットプレイスにもそのままあるので安全ということかと

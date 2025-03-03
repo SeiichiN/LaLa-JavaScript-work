@@ -1,0 +1,5 @@
+VS Codeの人気拡張機能にマルウェア、すぐに削除を - 900万回以上DL
+https://news.mynavi.jp/techplus/article/20250228-3137463/
+
+VSCodeで約900万回ダウンロードされていた拡張機能に悪意のあるコードが含まれていた
+https://rocket-boys.co.jp/security-measures-lab/have-i-been-pwned-alien-txtbase-284m-credentials-2/
