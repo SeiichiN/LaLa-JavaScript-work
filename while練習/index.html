@@ -31,22 +31,22 @@
   <script>
     'use strict';
     
-    let enemy = 100;
-    let count = 0;
+    let com = Math.floor(Math.random() * 10) + 1;  // 1..10
+
+    let user = parseInt(window.prompt('数あてゲーム。1～10の数字を入力してね。'));
     
-    window.alert('戦闘スタート！');
-    
-    while (enemy > 0) {
-    	const attack = Math.floor(Math.random() * 30) + 1;
-    	            // -----------------------------
-    	            //          0 ～ 29
-    	            // -----------------------------------
-    	            //          1 ～ 30
-    	alert('モンスターに' + attack + 'のダメージ');
-    	enemy -= attack;  // enemy = enemy - attack
-    	count += 1;       // count = count + 1
+    while (com !== user) {
+      if (com > user) {
+        window.alert('小さすぎます');
+      } else if (com < user) {
+        window.alert('大きすぎます');
+      } else {
+        window.alert('1～10でね');
+      }
+      user = parseInt(window.prompt('数あてゲーム。1～10の数字を入力してね。'));
     }
-    console.log(count + '回でモンスターを倒した！');
+    
+    window.alert('正解です');
   </script>
 </body>
 </html>

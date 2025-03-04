@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>年号を調べる</h1>
+  <script>
+    'use strict';
+    
+    let seireki = parseInt(prompt('西暦を入力'));
+    console.log(seireki);
+    
+    if (seireki >= 2019) {
+      alert('令和' + (seireki - 2018) + '年');
+    }
+    else if (seireki >= 1989) {
+      alert('平成' + (seireki - 1988) + '年');
+    }
+    else if (seireki >= 1926) {
+      alert('昭和' + (seireki - 1925) + '年');
+    }
+    else {
+      alert('わからん');
+    }
+  </script>
+</body>
+</html>

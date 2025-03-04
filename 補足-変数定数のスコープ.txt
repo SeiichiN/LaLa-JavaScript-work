@@ -1,0 +1,53 @@
+次のコードでは、aとbはどのように表示されるでしょうか？
+もし、表示されないとしたら、どのようにすれば表示されるでしょうか？
+
+コード1
+
+<script>
+  'use strict';
+
+  let a = 12;
+  if (a > 5) {
+    let b = 3;
+    a = 7;
+  }
+  console.log(a);
+  console.log(b);
+</script>
+
+
+コード2
+
+<script>
+  'use strict';
+ 
+  const a = 14;
+  while (a > 0) {
+    const b = a + 1;
+    console.log('a:', a);
+    console.log('b:', b);
+    a = a - 1;
+  }
+  console.log('end a:', a);
+  console.log('end b:', b);
+</script>
+
+
+コード３
+<script>
+  'use strict';
+  
+  let a = 12;
+  if (a > 5) {
+    let b = 3;
+    a = 7;
+    console.log(b);
+  }
+  if (a > 6) {
+    b = 4;
+    console.log(b);
+  }
+  console.log(a);
+</script>
+
+// 修正時刻: Tue 2025/03/04 09:30:16

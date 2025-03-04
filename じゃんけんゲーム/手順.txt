@@ -1,0 +1,30 @@
+(1) 0:グー 2:チョキ 3:パー
+    ユーザーに入力してもらう。
+    それを user という変数に入力する。
+
+   let user = parseInt(prompt('0:グー 1:チョキ 2:パー'));
+
+(2) コンピュータ、ランダムに0..2を決める。
+    それを com という変数に代入する。
+    
+    let com = Math.floor(Math.random() * 3);
+    
+(3) 条件式
+    user === com        引き分け
+    (user+1)%3 === com  userの勝ち
+    他                  comの勝ち
+    
+    if (user === com) {
+      alert('あいこです');
+    } else if ((user + 1) % 3 === com) {
+      alert('userの勝ち');
+    } else {
+      alert('comの勝ち');
+    }
+
+
+
+
+
+
+;; 修正時刻: Tue 2025/03/04 15:02:49
