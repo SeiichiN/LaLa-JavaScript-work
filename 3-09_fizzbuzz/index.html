@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>タイトル</h1>
+      <h2>サブタイトル</h2>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section>
+      </section>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  
+  <script>
+    'use strict';
+    let i = 1;
+    while (i <= 30) {
+	    console.log(fizzbuzz(i));  // fizzbuzzの呼び出し
+	    i += 1;
+	}
+    
+    function fizzbuzz(num) {
+      if (num % 15 === 0) {
+          return 'fizzbuzz';
+      } else if (num % 3 === 0) {
+          return 'fizz';
+      } else if (num % 5 === 0) {
+          return 'buzz';
+      } else {
+          return num;
+      }
+    }
+    
+
+  </script>
+</body>
+</html>

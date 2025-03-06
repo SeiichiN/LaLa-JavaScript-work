@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>タイトル</h1>
+      <h2>サブタイトル</h2>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section>
+        <button type="button" id="btn">今日の運勢は？</button>
+        <div id="fortune"></div>
+      </section>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  
+  <script>
+    'use strict';
+    
+    // id="btn"
+    // ボタンをクリックしたら、getFortune() を実行する
+    document.getElementById('fortune').textContent = getFortune();
+
+    function getFortune() {
+	    let fortune;
+	    const kuji = parseInt(Math.floor(Math.random() * 3) + 1);
+	    if (kuji === 1) {
+	      fortune = '大吉';
+	    } else if (kuji === 2) {
+	      fortune = '吉';
+	    } else {
+	      fortune = '凶';
+	    } 
+	    return fortune;
+    }
+    
+  </script>
+</body>
+</html>
