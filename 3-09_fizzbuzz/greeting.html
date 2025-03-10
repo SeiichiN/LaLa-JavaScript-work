@@ -30,29 +30,13 @@
   
   <script>
     'use strict';
-    // 変数i に初期値1
-    let i = 1;
-    // iが30以下であれば繰り返し
-    while (i <= 30) {
-        // iの数によって戻り値がちがう
-	    console.log(fizzbuzz(i));  // fizzbuzzの呼び出し
-	    // iを1増加
-	    i += 1;
-	}
     
-    function fizzbuzz(num) {
-      if (num % 15 === 0) {
-          return 'fizzbuzz';
-      } else if (num % 3 === 0) {
-          return 'fizz';
-      } else if (num % 5 === 0) {
-          return 'buzz';
-      } else {
-          return num;
-      }
+    function greeting(name) {
+        return name + 'さん、こんにちは';
     }
-    
-
+    let name = window.prompt('名前を入力');
+    let moji = greeting(name);
+    alert(moji);
   </script>
 </body>
 </html>

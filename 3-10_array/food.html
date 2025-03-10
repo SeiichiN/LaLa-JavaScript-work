@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <header>
     <div class="container">
@@ -18,41 +20,32 @@
   <main>
     <div class="container">
       <section>
+        <h1>好きな食べ物</h1>
+        <div id="food"></div>
       </section>
     </div>
   </main>
-  
+
   <footer>
     <div class="container">
       <p>JavaScript Sample</p>
     </div>
   </footer>
-  
+
   <script>
     'use strict';
-    // 変数i に初期値1
-    let i = 1;
-    // iが30以下であれば繰り返し
-    while (i <= 30) {
-        // iの数によって戻り値がちがう
-	    console.log(fizzbuzz(i));  // fizzbuzzの呼び出し
-	    // iを1増加
-	    i += 1;
-	}
-    
-    function fizzbuzz(num) {
-      if (num % 15 === 0) {
-          return 'fizzbuzz';
-      } else if (num % 3 === 0) {
-          return 'fizz';
-      } else if (num % 5 === 0) {
-          return 'buzz';
-      } else {
-          return num;
-      }
-    }
-    
 
+    const foods = [];
+    foods.push('カレーライス');
+    foods.push('きつねうどん');
+    foods.push('親子どんぶり');
+    
+    for (let food of foods) {
+        const ele = `<p>${food}</p>`;
+        document.getElementById('food')
+                .insertAdjacentHTML('beforeend', ele);
+    }
   </script>
 </body>
+
 </html>
