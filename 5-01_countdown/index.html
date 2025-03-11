@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>タイトル</h1>
+      <h2>サブタイトル</h2>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section>
+        <p>今から<span id="timer"></span>以内に注文すると５０％オフ！</p>
+      </section>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  
+  <script>
+    'use strict';
+    
+    // 期限オブジェクトを受け取って、
+    // 残り日時分秒を計算して、それを配列にして返す関数
+    // 引数 due -- 期限を表すDateオブジェクト
+    // 戻り値 -- [day, hour, min, sec]
+    function countdown(due) {
+	  const now = new Date(); // 現在日時
+	  
+	  // getTime() -- 1970/1/1からの経過ミリ秒
+	  // dueまでの残りミリ秒
+	  const rest = due.getTime() - now.getTime();
+	  const sec = Math.floor(rest / 1000) % 60;
+	           // -----------------------
+	           // dueまでの残り秒
+	           // ----------------------------
+	           // dueまでの分を計算して、その余り
+	           
+	  const min = Math.floor(rest / 1000 / 60) % 60
+	           // ----------------------------
+	           // dueまでの残り分
+	           // ---------------------------------
+	           // dueまでの時間を計算して、その余り
+	           
+	  const hours = Math.floor(rest / 1000 / 60 / 60) % 24
+	           //   ---------------------------------
+	           //   dueまでの残り時間
+	           //   --------------------------------------
+	           //   dueまでの日数を計算して、その余り
+	  
+	  const days = Math.floor(rest / 1000 / 60 / 60 / 24);
+	           //  --------------------------------------
+	           //  dueまでの残り日数
+	           
+	  const count = [days, hours, min, sec];
+	  return count;
+    }
+    
+    let goal = new Date(2025, 2, 11, 23, 59, 59);
+    
+    function recalc() {
+	  const counter = countdown(goal);
+      const time = `${counter[1]}時間 ${counter[2]}分 ${counter[3]}秒`;
+      document.getElementById('timer').textContent = time;
+      refresh();
+    }
+    
+    function refresh() {
+      // 1秒後にrecalcを実行する
+      setTimeout(recalc, 1000);
+    }
+    
+    recalc();
+  </script>
+</body>
+</html>

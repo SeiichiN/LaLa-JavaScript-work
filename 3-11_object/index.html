@@ -18,6 +18,13 @@
   <main>
     <div class="container">
       <section>
+        <table border="1">
+          <tr>
+            <td id="title"></td>
+            <td id="price"></td>
+            <td id="stock"></td>
+          </tr>
+        </table>
       </section>
     </div>
   </main>
@@ -36,9 +43,15 @@
       price: 2500,
       stock: 3,
     };
+    /*------------------------------------
+    document.getElementById('title').textContent = jsbook.title;
+    document.getElementById('price').textContent = jsbook.price + '円';
+    document.getElementById('stock').textContent = jsbook.stock;
+    ---------------------------------*/
 
     for (let p in jsbook) {
-      console.log(`${p}=${jsbook[p]}`);
+      document.getElementById(p).textContent = jsbook[p];
+      // console.log(`${p}=${jsbook[p]}`);
     }
 
 
