@@ -18,7 +18,14 @@
   <main>
     <div class="container">
       <section>
-        <p>今から<span id="timer"></span>以内に注文すると５０％オフ！</p>
+        <h2><span>知ってました？</span><br>
+            2025年大阪万博開催まで</h2>
+        <p class="timer">あと
+            <span id="day"></span>日
+            <span id="hour"></span>時
+            <span id="min"></span>分
+            <span id="sec"></span>秒
+        </p>
       </section>
     </div>
   </main>
@@ -65,15 +72,18 @@
 	           //  dueまでの残り日数
 	           
 	  const count = [days, hours, min, sec];
+	               // 0     1      2    3
 	  return count;
     }
     
-    let goal = new Date(2025, 2, 11, 23, 59, 59);
+    let goal = new Date(2025, 4, 3);
     
     function recalc() {
 	  const counter = countdown(goal);
-      const time = `${counter[1]}時間 ${counter[2]}分 ${counter[3]}秒`;
-      document.getElementById('timer').textContent = time;
+	  document.getElementById('day').textContent = counter[0];
+	  document.getElementById('hour').textContent = counter[1];
+	  document.getElementById('min').textContent = String(counter[2]).padStart(2, '0');
+	  document.getElementById('sec').textContent = String(counter[3]).padStart(2, '0');
       refresh();
     }
     
