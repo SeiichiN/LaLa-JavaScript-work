@@ -31,7 +31,24 @@
   <script>
     'use strict';
     
+    // 身長と体重を受け取って肥満度の文字列を返す
+    // height -- cm
+    // weight -- kg
+    function getLevel(height, weight) {
+      height = height / 100;
+      const bmi = weight/ (height * height);
+      if      (bmi < 18.5) {return '低体重'  ;}
+      else if (bmi < 25.0) {return '普通体重';}
+      else if (bmi < 30.0) {return '肥満1度' ;}
+      else if (bmi < 35.0) {return '肥満2度' ;}
+      else if (bmi < 40.0) {return '肥満3度' ;}
+      else                 {return '肥満4度' ;}
+    }
     
+    const height = parseFloat(prompt('身長(cm)'));
+    const weight = parseFloat(prompt('体重(kg)'));
+    const level = getLevel(height, weight);
+    alert(`あなたは${level}です。`);
   </script>
 </body>
 </html>

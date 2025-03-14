@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>タイトル</h1>
+      <h2>サブタイトル</h2>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section>
+      </section>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  
+  <script>
+    'use strict';
+    
+    // 小数点第2位を四捨五入して
+    // 小数点第1位までの数を返す関数
+    // num -- 小数点数(125.67)
+    function myRound(num) {
+      let num2 = num * 10;
+      num2 = num2 + 0.5;
+      num2 = Math.floor(num2);
+      return num2 / 10;
+    }
+    
+    console.log(myRound(125.67));
+  </script>
+</body>
+</html>
