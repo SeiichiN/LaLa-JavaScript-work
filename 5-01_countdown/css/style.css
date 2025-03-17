@@ -23,18 +23,18 @@ header .container {
   background-size: 53px;
   background-position: 16px 10px;
 }
-h1, h2 {
+header h1, header h2 {
   margin: 0;
   color: #fff;
   line-height: 1;
 }
-h1 {
+header h1 {
   padding: 15px 0 4px 0;
   border-bottom: 1px dotted #fff;
   font-size: 16px;
   font-weight: bold;
 }
-h2 {
+header h2 {
   padding: 5px 0 0 0;
   font-size: 14px;
   font-weight: normal;
