@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 700px;
+      height: 500px;
+      background-color: pink;
+      position: relative;
+    }
+    #dog {
+      width: 100px;
+      position: absolute;
+      top: 300px;
+      left: 500px;
+      transition: all 3s;
+    }
+  </style>
+</head>
+<body>
+  <h1>画像を動かす</h1>
+  <div id="box">
+    <img src="dog.png" alt="" id="dog">    
+  </div>
+  <script>
+    'use strict';
+
+    document.querySelector('h1').onclick = function() {
+      document.querySelector('#dog').style.left = '100px';
+    };
+  </script>
+</body>
+</html>

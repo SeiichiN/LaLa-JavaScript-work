@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/special.css">
+</head>
+<body>
+  <div id="wrapper">
+	  <header>
+	    <div class="container">
+	      <div class="title-block">
+	        <h1>ドロワーナビゲーション</h1>
+	        <h2>ヘッダーにボタンを設置する</h2>
+	      </div>
+	      <div class="hamburger" id="open_nav">
+	      	<img src="hamburger.png" alt="">
+	      </div>
+	    </div>
+	  </header>
+
+	  <main>
+	    <div class="container">
+	      <section>
+	        <div class="key">
+	          <img src="key.jpg" alt="">
+	        </div>
+	        <div class="content">
+	          <h1>一人旅でリフレッシュ</h1>
+	          <p>今月の特集は「一人旅」<br>
+	            週末に行ける小さな旅行から人生を見つめる長旅まで、<br>
+	            充実のおひとり様プラン、紹介します。</p>
+	        </div>
+	        <div class="archive">
+	          <h3>特集アーカイブ</h3>
+	          <div class="archive-box">
+	            <figure>
+	              <img src="thumb1.jpg" alt="">
+	              <figcaption>レトロな旅の、楽しみ方</figcaption>
+	            </figure>
+	            <figure>
+	              <img src="thumb2.jpg" alt="">
+	              <figcaption>建築物を巡る旅</figcaption>
+	            </figure>
+	          </div>
+	        </div>
+	      </section>
+	    </div>
+	  </main>
+	  
+	  <footer>
+	    <div class="container">
+	      <p>JavaScript Sample</p>
+	    </div>
+	  </footer>
+  </div><!-- #wrapper end -->
+  
+  <nav id="nav">
+    <div class="logo"><img src="logo.svg" alt=""></div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">今月の特集</a></li>
+      <li><a href="#">ホテル探索</a></li>
+      <li><a href="#">カフェ検索</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
+  </nav>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    'use strict';
+    
+    $(function(){
+      $('#open_nav').on('click', function(){
+        $('#wrapper, #nav').toggleClass('show');
+      });
+    });
+  </script>
+</body>
+</html>

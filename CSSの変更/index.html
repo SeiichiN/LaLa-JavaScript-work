@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #target {
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSSを変更する</h1>
+  <div id="target">ここを変更</div>
+  <button id="change">変更</button>
+  <script>
+    'use strict';
+    
+    const target = document.getElementById('target');
+    document.getElementById('change').onclick = function() {
+      target.style.backgroundColor = 'blue';
+      target.style.color = '#fff';
+      target.style.fontSize = '2em';
+    };
+  </script>
+</body>
+</html>
