@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>タイトル</h1>
+      <h2>サブタイトル</h2>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section>
+        <h2><span>知ってました？</span><br>
+            2025年大阪万博開催まで</h2>
+        <p class="timer">あと
+            <span id="day"></span>日
+            <span id="hour"></span>時
+            <span id="min"></span>分
+            <span id="sec"></span>秒
+        </p>
+      </section>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    'use strict';
+    
+    $(function(){
+	    function countdown(due) {
+	  	  const now = new Date(); // 現在日時
+	  	  const rest = due.getTime() - now.getTime();
+			  const sec = Math.floor(rest / 1000) % 60;
+			  const min = Math.floor(rest / 1000 / 60) % 60
+			  const hours = Math.floor(rest / 1000 / 60 / 60) % 24
+			  const days = Math.floor(rest / 1000 / 60 / 60 / 24);
+			  const count = [days, hours, min, sec];
+			  return count;
+	    } // countdown() end
+
+	    let goal = new Date(2025, 3, 13);
+    
+	    function recalc() {
+			  const counter = countdown(goal);
+			  $('#day').text(counter[0]);
+			  $('#hour').text(counter[1]);
+			  $('#min').text(String(counter[2]).padStart(2, '0'));
+			  $('#sec').text(String(counter[3]).padStart(2, '0'));
+	      refresh();
+	    }
+	    
+	    function refresh() {
+	      setTimeout(recalc, 1000);
+	    }
+
+      recalc();
+    }); // jquery-end
+  </script>
+</body>
+</html>

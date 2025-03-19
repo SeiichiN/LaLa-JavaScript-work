@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>タイトル</h1>
+      <h2>サブタイトル</h2>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section>
+        <p>最終アクセス日時：<span id="time"></span></p>
+        <p><span id="weekday"></span>曜日</p>
+      </section>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    'use strict';
+    
+    $(function(){
+	    const now = new Date(2025, 2, 11, 12, 3, 0);
+	    const year = now.getFullYear();
+	    const month = now.getMonth();
+	    const date = now.getDate();
+	    const hour = now.getHours();
+	    const min = now.getMinutes();
+	    const day = now.getDay(); console.log(day);
+	    const weekday = ['日', '月', '火', '水', '木', '金', '土'];
+	    let ampm = '';
+	    if (hour < 12) {
+	      ampm = '午前';
+	    } else {
+	      ampm = '午後';
+	    }
+	
+	    const output = `${year}年${month + 1}月${date}日 ${ampm}${hour%12}時${min}分`;
+			$('#time').text(output);
+			$('#weekday').text(weekday[day])
+    });  // jquery end
+  </script>
+</body>
+</html>

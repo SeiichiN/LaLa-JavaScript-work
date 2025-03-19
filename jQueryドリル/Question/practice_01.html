@@ -1,0 +1,519 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery（メソッド編）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #FFF;
+            width: 800px;
+            border-radius: 10px;
+            background: #09F;
+            margin: 10px auto;
+            text-align: center;
+            padding: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #069;
+            font-size: 18px;
+        }
+
+        div.box {
+            width: 800px;
+            margin: 15px auto;
+            background: #eee;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h3 {
+            font-size: 24px;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px #999 solid;
+        }
+
+        .button {
+            padding: 5px 10px;
+            border: #666 solid 1px;
+            background: #FFF;
+            display: block;
+            width: 100px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #q17 {
+            width: 100px;
+            height: 20px;
+            background: #333;
+            color: #FFF;
+            padding: 5px;
+        }
+
+        .q24_a,
+        .q27_b {
+            text-decoration: underline;
+            color: #00F;
+        }
+
+        #q29 {
+            background: #FFF;
+            width: 100px;
+            height: 100px;
+        }
+
+        .aaa {
+            color: #F00;
+        }
+
+        .bbb {
+            font-weight: 900;
+            font-size: 24px;
+            color: #00F;
+        }
+
+        .ccc {
+            padding: 10px;
+            border: #000 2px solid;
+        }
+
+        .ddd {
+            opacity: 0.5;
+            background: #F0F;
+            cursor: pointer;
+
+        }
+
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <h1>jQuery練習問題　Level 1</h1>
+    <h2>レベル１・・・・・基本的にメソッドのみ</h2>
+
+    <!--	Q.01	-->
+    <div class="box">
+        <h3>Q1.『Hello,World』をアラート出力せよ</h3>
+        <script>
+            $(function() {
+                
+            });
+
+        </script>
+        <p id="q01">jQueryドリルQ1</p>
+    </div>
+
+    <!--	Q.02	-->
+    <div class="box">
+        <h3>Q2.id名『q02』のテキストカラーを青・背景色を黄色に変更せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p id="q02">jQueryドリルQ2</p>
+    </div>
+
+    <!--	Q.03	-->
+    <div class="box">
+        <h3>Q3.id名「q03」の空の段落にテキスト「エレン」を追加せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p id="q03"></p>
+    </div>
+
+    <!--	Q.04	-->
+    <div class="box">
+        <h3>Q4.「エレン」のテキストを「駆逐してやるッ!!!」に書き換えよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p id="q04">エレン</p>
+    </div>
+
+    <!--	Q.05	-->
+    <div class="box">
+        <h3>問5.id名『q05』「あああ」の内容を&lt;
+            a href="#"&gt;タグを含めた「いいい」に置換せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p id="q05">あああ</p>
+    </div>
+
+    <!--	Q.06	-->
+    <div class="box">
+        <h3>Q6.ul要素にclass名「aaa」を追加せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <ul id="q6">
+            <li>リスト1</li>
+            <li>リスト2</li>
+            <li>リスト3</li>
+        </ul>
+
+    </div>
+
+    <!--	Q.07	-->
+    <div class="box">
+        <h3>Q7.Q6のli要素を削除せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p id="q07"></p>
+    </div>
+
+    <!--	Q.08	-->
+    <div class="box">
+        <h3>Q8.ボタンをクリックしたら『クリックしました』のアラート表示</h3>
+        <script>
+            $(function() {
+              $('.button').on('click', function () {
+                alert("クリックしま");
+              });
+            });
+
+        </script>
+        <div class="button">ぼたん</div>
+    </div>
+
+    <!--	Q.09	-->
+    <div class="box">
+        <h3>Q9.Q2のスクリプトを変数aaaに代入し文字の色の値をp#q9にテキスト出力せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p id="q9"></p>
+    </div>
+
+    <!--	Q.10	-->
+    <div class="box">
+        <h3>Q10.p要素をクリックしたらclass名「bbb」を追加せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p id="q10" class="aaa">めんま、</p>
+    </div>
+
+    <!--	Q.11	-->
+    <div class="box">
+        <h3>Q11.q10.のテキストの先頭に「超平和バスターズ、」を追加せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+    </div>
+
+    <!--	Q.12	-->
+    <div class="box">
+        <h3>Q12.p要素の末尾に「ゆきあつ、つるこ、あきお、ぽっぽ」を追加せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+    </div>
+
+    <!--	Q.13	-->
+    <div class="box">
+        <h3>Q13.ul要素のliタグの前にliタグで『飛べない』を追加せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <ul id="q13">
+            <li>豚は</li>
+        </ul>
+    </div>
+
+
+    <!--	Q.14	-->
+    <div class="box">
+        <h3>Q14.Q13のliタグの最後にliタグで『ただの豚』を追加せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+    </div>
+
+    <!--	Q.15	-->
+    <div class="box">
+        <h3>Q15.pタグ「あああ」をID名q15のdiv要素の最初に追加せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <div id="q15">
+            <p>いいい</p>
+        </div>
+    </div>
+
+    <!--	Q.16	-->
+    <div class="box">
+        <h3>Q16.pタグ「ううう」をID名q15のdiv要素の最後に追加せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+    </div>
+
+    <!--	Q.17	-->
+    <div class="box">
+        <h3>Q17.pタグ「ききき」をid名「q17」のdiv要素の前に差し込め</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p>かかか</p>
+        <div id="q17">#q17</div>
+    </div>
+
+    <!--	Q.18	-->
+    <div class="box">
+        <h3>Q18.pタグ「くくく」をid名「q17」のdiv要素の後に差し込め</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+    </div>
+
+    <!--	Q.19	-->
+    <div class="box">
+        <h3>Q19.id名q19の要素をclass名「ccc」のdiv要素で囲みなさい</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p id="q19">家畜の豚</p>
+    </div>
+
+    <!--	Q.20	-->
+    <div class="box">
+        <h3>Q20.id名「q20」要素の親要素class名「ccc」を取り除きなさい<br>※remove()関数やhide()関数は使用しない事。</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <div class="ccc">
+            <p id="q20">この支配からの卒業</p>
+        </div>
+    </div>
+
+    <!--	Q.21	-->
+    <div class="box">
+        <h3>Q21.class名「q21」が付く要素をclass名「ddd」のdiv要素の中にすべて囲みなさい</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+
+        <p class="q21">さささ</p>
+        <p>ししし</p>
+        <p class="q21">すすす</p>
+        <p>せせせ</p>
+        <p class="q21">そそそ</p>
+    </div>
+
+    <!--	Q.22	-->
+    <div class="box">
+        <h3>Q22.class名「q22」が付くすべての要素内テキストをclass名「ddd」のdiv要素で囲みなさい</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+
+        <p class="q22">たたた</p>
+        <p>ちちち</p>
+        <p class="q22">つつつ</p>
+        <p>ててて</p>
+        <p class="q22">ととと</p>
+
+    </div>
+
+    <!--	Q.23	-->
+    <div class="box">
+        <h3>Q23.class名「q23」が付くすべての要素すべてを「xxx」のp要素に置き換えなさい</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p class="q23">ななな</p>
+        <p>ににに</p>
+        <p class="q23">ぬぬぬ</p>
+        <p>ねねね</p>
+        <p class="q23">ののの</p>
+    </div>
+
+    <!--	Q.24	-->
+    <div class="box">
+        <h3>Q24.class名「q24」要素のclass名を「q24_a」に書き換えなさい</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p class="q24">Ｑ24</p>
+    </div>
+
+    <!--	Q.25	-->
+    <div class="box">
+        <h3>Q25.class名「q25」が付いている要素のaタグのhref属性を削除せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p class="q25"><a href="#">ははは</a></p>
+        <p><a href="#">ひひひ</a></p>
+        <p class="q25"><a href="#">ふふふ</a></p>
+        <p><a href="#">へへへ</a></p>
+        <p class="q25"><a href="#">ほほほ</a></p>
+
+    </div>
+
+    <!--	Q.26	-->
+    <div class="box">
+        <h3>Q26.class名「q26」が付いている要素のaタグに別窓表示の属性を追加せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p class="q26"><a href="#">ままま</a></p>
+        <p><a href="#">みみみ</a></p>
+        <p class="q26"><a href="#">むむむ</a></p>
+        <p><a href="#">めめめ</a></p>
+        <p class="q26"><a href="#">ももも</a></p>
+
+    </div>
+
+    <!--	Q.27	-->
+    <div class="box">
+        <h3>Q27.class名「q27_a」要素をclass名「q27_b」に切り替えよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p class="q27_a">Ｑ２７</p>
+    </div>
+
+    <!--	Q.28	-->
+    <div class="box">
+        <h3>Q28.フォームに入力値を「入力してください」に書き換えなさい</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <form>
+            <input type="text" value="入力しないでください">
+        </form>
+    </div>
+
+    <!--	Q.29	-->
+    <div class="box">
+        <h3>Q29.id名「q29」の要素をブラウザ上5430px、左800px値の位置で表示せよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p id="q29">Ｑ２９</p>
+    </div>
+
+    <!--	Q.30	-->
+    <div class="box">
+        <h3>Q30.p要素をクリックしたら直下のulの子要素を全て空にせよ</h3>
+        <script>
+            $(function() {
+
+            });
+
+        </script>
+        <p class="button">ぼたん</p>
+        <ul id="q30">
+            <li>リスト1</li>
+            <li>リスト2</li>
+            <li>リスト3</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

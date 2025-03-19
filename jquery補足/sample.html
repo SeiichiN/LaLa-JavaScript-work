@@ -1,0 +1,37 @@
+<html>
+<body>
+	<div id="abc">abc</div>
+	<div id="def">def</div>
+	<div id="ghijk">ghijk</div>
+	<div id="xyz">xyz</div>
+	<hr>
+	<div id="here"></div>
+	<div id="there"></div>
+	<div id="over"></div>
+	<div id="that"></div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+	<script>
+	'use strict';
+
+	$(function(){
+	  $('#abc').on('click', function() {
+	    $('#here').text('OK');
+	  })
+	  
+	  document.getElementById('def').onclick = function() {
+	    document.getElementById('there').textContent = 'out';
+	  };
+
+	  $('#ghijk').on('click', function() {
+	    $('#over').text('no good');
+	  })
+
+	  $('#xyz').on('click', function() {
+	    $('#that').text('not enough');
+	  })
+	});
+	</script>
+</body>
+</html>
