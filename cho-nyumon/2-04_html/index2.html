@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1 id="h1"></h1>
+  <p>現在日時: <span id="now"></span></p>
+  <p>あああ</p>
+  
+  <script>
+    'use strict';
+    
+    document.getElementById('h1')
+            .textContent = '練習';
+    
+    document.getElementById('now')
+            .textContent = new Date();
+            
+    console.log(
+      document.getElementsByTagName('p')
+    );
+  </script>
+</body>
+</html>

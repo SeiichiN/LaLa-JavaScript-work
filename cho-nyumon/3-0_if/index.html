@@ -9,14 +9,14 @@
 <body>
   <header>
     <div class="container">
-      <h1>javascriptはどこに書く</h1>
-      <h2>タグ</h2>
+      <h1>コンソールにアウトプット</h1>
+      <h2>開発ツール</h2>
     </div>
   </header>
   <main>
     <div class="container">
       <section>
-      
+        <p id="msg"></p>
       </section>
     </div>
   </main>
@@ -26,12 +26,17 @@
     </div>
   </footer>
   
-  <script src="script.js"></script>
   <script>
     'use strict';
     
-    console.log('よく柿食う客だ');
-    document.bgColor = 'pink';
+    if (confirm('準備はいい？')) {
+      // alert('ゲームを開始します');
+      document.getElementById('msg')
+              .textContent = 'ゲームを開始します';
+      
+    } else {
+        alert('ゲームを終了します');
+    }
   </script>
 </body>
 </html>

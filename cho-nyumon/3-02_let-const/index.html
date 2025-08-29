@@ -9,14 +9,14 @@
 <body>
   <header>
     <div class="container">
-      <h1>javascriptはどこに書く</h1>
-      <h2>タグ</h2>
+      <h1>コンソールにアウトプット</h1>
+      <h2>開発ツール</h2>
     </div>
   </header>
   <main>
     <div class="container">
       <section>
-      
+        <a href="index2.html">index2.htmlを開く</a>
       </section>
     </div>
   </main>
@@ -26,12 +26,15 @@
     </div>
   </footer>
   
-  <script src="script.js"></script>
   <script>
     'use strict';
     
-    console.log('よく柿食う客だ');
-    document.bgColor = 'pink';
+    const answer = prompt('ヘルプを見ますか？');
+		if (answer === 'yes') {
+		  alert('たっぷでジャンプ。障害物をよけます');
+		} else {
+		  alert(answer);
+		}
   </script>
 </body>
 </html>

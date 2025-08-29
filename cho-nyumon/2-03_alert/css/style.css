@@ -31,21 +31,20 @@ header .container {
   background-position: 16px 10px;
 }
 
-header h1,
-header h2 {
+h1, h2 {
   margin: 0;
   color: #fff;
   line-height: 1;
 }
 
-header h1 {
+h1 {
   padding: 15px 0 4px 0;
   border-bottom: 1px dotted #fff;
   font-size: 16px;
   font-weight: bold;
 }
 
-header h2 {
+h2 {
   padding: 5px 0 0 0;
   font-size: 14px;
   font-weight: normal;
