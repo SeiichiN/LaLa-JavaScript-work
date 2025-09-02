@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>三角形の面積</title>
+</head>
+<body>
+  <h1>三角形の面積</h1>
+  
+  <script>
+    'use strict';
+    
+    function triangle(bottom, height) {
+      return bottom * height / 2;
+    }
+    
+    const bottom = parseFloat(prompt('底辺の長さ(cm)'));
+    const height = parseFloat(prompt('高さ(cm)'));
+    const area = triangle(bottom, height);
+    alert('三角形の面積は' + area + '平方センチメートル');
+
+
+  </script>
+</body>
+</html>
