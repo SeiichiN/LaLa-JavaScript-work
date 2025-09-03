@@ -10,7 +10,22 @@
     'use strict';
     
     function getSum(n) {
-      
+      let total = 0;
+      while (n > 0) {
+        total += n;
+				n -= 1;
+      }
+      return total;
+    }
+    // nまでの合計(寺田方式)
+    // n * (n+1) / 2 
+    
+    function total(n) {
+      if (n = 1) {
+        return 1; 
+      } else {
+        return n + total(n - 1);
+      }
     }
   </script>
   <script>
