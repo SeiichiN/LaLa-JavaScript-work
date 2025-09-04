@@ -18,15 +18,19 @@
 		const user = parseInt(prompt('選んでください 0,1,2'));
 		const com = Math.floor(Math.random() * 3);
 		
-		alert('わたし' + hand[com] + 'あなた' + hand[user]);
+		document.getElementById('result1').textContent =
+		  `わたし${hand[com]} あなた${hand[user]}`;
 		
+		let msg;
 		if (user === com) {
-		  alert('あいこです');
+		  msg = 'あいこです';
 		} else if ((user + 1) % 3 === com) {
-		  alert('あなたの勝ち');
+		  msg = 'あなたの勝ち';
 		} else {
-		  alert('わたしの勝ち');
+		  msg = 'わたしの勝ち';
 		}
+		const result2 = document.getElementById('result2');
+		result2.textContent = msg;
   </script>
 </body>
 </html>

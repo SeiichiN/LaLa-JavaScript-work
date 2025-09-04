@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>LION</title>
+  <style>
+   .image {
+     width: 600px;
+     padding: 40px;
+     background-color: #555;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+   }
+   img {
+     max-width: 100%;
+   }
+  </style>
+</head>
+<body>
+  <h1>LION</h1>
+  <div id="contain"></div>
+  <script>
+    'use strict';
+    
+    const element = `
+       <div class="image">
+         <img src="lion.jpg" alt="">
+       </div>
+    `;
+    const parent = document.getElementById('contain');
+    parent.insertAdjacentHTML('beforeend', element);
+    
+  </script>
+</body>
+</html>

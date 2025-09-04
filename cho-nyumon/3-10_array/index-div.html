@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>コンソールにアウトプット</h1>
+      <h2>開発ツール</h2>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section>
+      	<div id="list"></div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  
+  <script>
+    'use strict';
+    
+    const todo = ['デザインカンプ作成',
+                  'データ整理'        ,
+                  '勉強会申し込み'    ,
+                  '牛乳買う'          ,];
+                   
+    for (const item of todo) {
+      const child = `<div>${item}</div>`;
+    	const parent = document.getElementById('list');
+    	parent.insertAdjacentHTML('beforeend', child);
+    }
+    
+  </script>
+</body>
+</html>

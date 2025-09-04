@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>コンソールにアウトプット</h1>
+      <h2>開発ツール</h2>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section>
+      	<form action="#" id="form">  <!-- method="get" -->
+      	  <input type="text" name="word">
+      	  <input type="submit" value="検索">
+      	</form>
+      	<p id="output"></p>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  
+  <script>
+    'use strict';
+    
+    document.getElementById('form').onsubmit = function() {
+      const search = document.getElementById('form').word.value;
+      document.getElementById('output').textContent = `「${search}」の検索中...`;
+    };
+  </script>
+</body>
+</html>
