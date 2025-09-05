@@ -12,17 +12,21 @@
   </div>
   <script>
     'use strict';
+   /*
+      setTimeout(disp, 1000, goal) と
+      disp()に引数を渡す
+   */
     
     let counter;
-    let goal;
+    // let goal;
     
     const $form = document.getElementById('form');
     $form.onsubmit = function(e) {
     	e.preventDefault();
     	const min = parseInt($form.min.value);
-    	goal = new Date();
+    	let goal = new Date();
     	goal.setMinutes(goal.getMinutes() + min);
-    	disp();
+    	disp(goal);
     }
     
     function countdown(due) {
@@ -38,17 +42,17 @@
 			return count;    
     }
     
-   function disp() {
-     counter = countdown(goal);
-	 const $min = document.getElementById('min');
-	 $min.textContent = counter[2];
-	 const $sec = document.getElementById('sec');
-	 $sec.textContent = counter[3];
-     refresh();
-   }
+    function disp(goal) {
+    	counter = countdown(goal);
+			const $min = document.getElementById('min');
+			$min.textContent = counter[2];
+			const $sec = document.getElementById('sec');
+			$sec.textContent = counter[3];
+    	refresh(goal);
+    }
     
-    function refresh() {
-    	setTimeout(disp, 1000);
+    function refresh(goal) {
+    	setTimeout(disp, 1000, goal);
     }
 
   </script>
