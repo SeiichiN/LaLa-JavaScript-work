@@ -1,0 +1,20 @@
+<html>
+<body>
+  <h1>わんこ</h1>
+  <div id="bark"></div>
+  <script>
+    'use strict';
+    
+    function bark() {
+      console.log('わんわん');
+      refresh();
+    }
+    
+    function refresh() {
+    	setTimeout(bark, 1000);
+    }
+    
+    bark();
+  </script>
+</body>
+</html>

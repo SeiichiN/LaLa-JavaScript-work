@@ -16,11 +16,7 @@
   <main>
     <div class="container">
       <section>
-      	<form action="" id="form">  <!-- method="get" -->
-      	  <input type="text" name="word">
-      	  <input type="submit" value="検索">
-      	</form>
-      	<p id="output"></p>
+      	<p>最終アクセス日時 : <span id="time"></span></p>
       </section>
     </div>
   </main>
@@ -29,16 +25,24 @@
       <p>JavaScript Sample</p>
     </div>
   </footer>
-  
   <script>
     'use strict';
     
-    document.getElementById('form').onsubmit = function(e) {
-      e.preventDefault();  // 遷移をとめる
-      // console.log(e);
-      const search = document.getElementById('form').word.value;
-      document.getElementById('output').textContent = `「${search}」の検索中...`;
-    };
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const day = now.getDate();
+    const hour = now.getHours();
+    const min = now.getMinutes();
+    let ampm = '';
+    if (hour < 12) {
+      ampm = '午前';
+    } else {
+      ampm = '午後';
+    }
+    
+    const output = `${year}/${month + 1}/${day} ${ampm}${hour % 12}:${min}`;
+    document.getElementById('time').textContent = output;
   </script>
 </body>
 </html>
