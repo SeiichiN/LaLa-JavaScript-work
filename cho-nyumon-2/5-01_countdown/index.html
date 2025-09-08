@@ -36,9 +36,6 @@
   <script>
    'use strict';
 
-   // due(期限)まであと何日何時間何分何秒かを求める関数
-   // 引数: due 日付オブジェクト
-   // 戻り値: 配列 [日, 時間, 分, 秒]
    function countdown(due) {
 	 const now = new Date();
 	 const rest = due.getTime() - now.getTime();
@@ -52,8 +49,6 @@
 	 return count;    
    }
 
-   // goal(期限)まであと何日何時間何分何秒かを
-   // bodyの指定された場所に記述する関数
    function recalc() {
 	 const counter = countdown(goal);  // [1042, 9, 49, 56]
 	 document.getElementById('day').textContent = counter[0];
@@ -65,7 +60,6 @@
      refresh();
    }
 
-   // 呼び出されると、その1秒後にrecalc関数を実行する関数
    function refresh() {
      setTimeout(recalc, 1000);
    }
