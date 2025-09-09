@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<body>
+  <h1>saikoro</h1>
+  <div id="output"></div>
+  
+  <script>
+    'use strict';
+    
+    function refresh() {
+      setTimeout(roll, 1000);
+    }
+    
+    function roll() {
+      const num = Math.floor(Math.random() * 6) + 1;
+			document.getElementById('output')
+			        .textContent = num;
+      refresh();
+    }
+    
+    roll();
+  </script>
+  
+</body>
+</html>
