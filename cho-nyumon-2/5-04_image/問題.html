@@ -7,13 +7,20 @@
   <li>さる</li>
   <li>くま</li>
 </ul>
+<div id="output"></div>
 <script>
   'use strict';
   
   const lis = document.querySelectorAll('li');
-  console.log(lis);
+  lis.forEach(function(item) {
+    item.onclick = function() {
+      document.getElementById('output').textContent = this.textContent;
+    }
+  })
   
 </script>
 </body>
 </html>
 
+
+<!-- 修正時刻: Wed 2025/09/10 06:50:49 -->
