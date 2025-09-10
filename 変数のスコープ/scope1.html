@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<body>
+  <h1>変数のスコープ1</h1>
+  
+  <script>
+    'use strict';
+    
+    function wahaha(dog) {
+      dog = 'siro';
+      console.log(dog);
+      let cat = 'tama';
+    }
+    
+    let dog = 'pochi';
+    wahaha(dog);
+    console.log(dog);
+  </script>
+</body>
+</html>

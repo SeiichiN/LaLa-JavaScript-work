@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<body>
+  <h1>変数のスコープ2</h1>
+  
+  <script>
+    'use strict';
+    
+    let num = 5;
+    if (num > 0) {
+      num += 1;
+      let ans = num;  // ローカル変数
+    }
+    console.log(ans); // error!
+    
+  </script>
+</body>
+</html>
