@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .slide {
+      margin: 0 auto;
+      border: 1px solid black;
+      width: 720px;
+      background-color: black;
+    }
+    img {
+      max-width: 100%;
+      vertical-align: bottom;
+    }
+    .toolbar {
+      overflow: hidden;
+      text-align: center;
+    }
+    .nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 0;
+    }
+    #prev {
+      margin-right: 0.5rem;
+      width: 16px;
+      height: 16px;
+      background: url(images/arrow-left.svg) no-repeat;
+    }
+    #next {
+      margin-left: 0.5rem;
+      width: 16px;
+      height: 16px;
+      background: url(images/arrow-right.svg) no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>コンソールにアウトプット</h1>
+      <h2>開発ツール</h2>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section>
+        <div class="slide">
+          <div class="image_box">
+          	<img src="images/image1.jpg" 
+          	     id="main_image" alt="">
+          </div>
+          <div class="toolbar">
+            <div class="nav">
+              <div id="prev"></div>
+              <div id="next"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  
+  <script>
+    'use strict';
+    
+    const images = [
+                    'images/image1.jpg',
+                    'images/image2.jpg',
+                    'images/image3.jpg',
+                    'images/image4.jpg',
+                    'images/image5.jpg',
+                   ];
+    let current = 0;
+    
+    // currentが1増えた場合の処理
+    function changeImagePlus() {
+      if (current + 1 < images.length) {
+        current += 1;
+        document.getElementById('main_image').src = images[current];
+      }
+    }
+    
+    // currentが1減った場合の処理
+    function changeImageMinus() {
+      if (current - 1 > 0) {
+        current -= 1;
+        document.getElementById('main_image').src = images[current];
+      }
+    }
+    
+    document.getElementById('prev').onclick = function() {
+    	changeImageMinus();
+    };
+
+    document.getElementById('next').onclick = function() {
+    	changeImagePlus();
+    };
+  </script>
+</body>
+</html>

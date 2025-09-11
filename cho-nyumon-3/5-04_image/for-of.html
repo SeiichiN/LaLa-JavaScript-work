@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    section img {
+      max-width: 100%;
+    }
+    .center {
+      margin: 0 auto;
+      max-width: 90%;
+      width: 500px;
+    }
+    ul {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    li {
+      flex: 1 1 auto;
+      margin-right: 8px;
+    }
+    li:last-of-type {
+      margin-right: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>コンソールにアウトプット</h1>
+      <h2>開発ツール</h2>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section>
+        <div class="center">
+          <div>
+            <img src="img1.jpg" alt="" id="bigimg">
+          </div>
+          <ul>
+            <li><img src="thumb-img1.jpg" alt="" class="thumb" data-image="img1.jpg"></li>
+            <li><img src="thumb-img2.jpg" alt="" class="thumb" data-image="img2.jpg"></li>
+            <li><img src="thumb-img3.jpg" alt="" class="thumb" data-image="img3.jpg"></li>
+            <li><img src="thumb-img4.jpg" alt="" class="thumb" data-image="img4.jpg"></li>
+          </ul>
+        </div> <!-- .center end -->
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  
+  <script>
+    'use strict';
+    
+    const thumbs = document.querySelectorAll('.thumb');
+    
+    for (let item of thumbs) {
+    	item.onclick = function() {
+    	  document.querySelector('#bigimg').src = this.dataset.image;
+    	};
+    }
+
+  </script>
+</body>
+</html>
