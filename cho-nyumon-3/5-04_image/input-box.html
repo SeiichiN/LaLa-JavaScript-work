@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title></title>
+  </head>
+  <body>
+    <h1>input-box</h1>
+    <input type="text" id="name-box"/>
+    <button id="btn">click me!</button>
+    <div id="output"></div>
+    <script>
+    'use strict';
+
+     document.getElementById('btn').onclick = function() {
+       const name = document.getElementById('name-box').value;
+       document.getElementById('output').textContent = name;
+}
+    </script>
+  </body>
+</html>
+
+<!-- 修正時刻: Wed 2025/09/10 06:50:49 -->

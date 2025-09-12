@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>コンソールにアウトプット</h1>
+      <h2>開発ツール</h2>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section>
+      
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  
+  <script>
+    'use strict';
+    
+    const todo = ['デザインカンプ作成',
+                  'データ整理'        ,
+                  '勉強会申し込み'    ,
+                  '牛乳買う'          ,];
+                   
+    todo[3] = 'トマト買う';
+    todo[4] = 'バスに乗る';  // 追加
+    todo.push('歯医者にいく'); // 追加
+    console.log(todo);
+    
+    // todo = ['abc', 'def', 'ghi'];  // 再代入できない
+    
+    for (const item of todo) {
+    	console.log(item);
+    }
+    
+  </script>
+</body>
+</html>

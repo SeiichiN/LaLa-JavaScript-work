@@ -10,6 +10,25 @@ img {
 
 /* ===== 機能の実装に必要なCSS ===== */
 
+/* ドロワーナビゲーションの必須スタイル */
+#nav {
+  width: 270px;
+  height: 100%;
+  position: fixed;
+  right: -270px;
+  top: 0;
+}
+
+/* ドロワーメニューが開かれたときのスタイル */
+.show {
+  transform: translateX(-270px);
+}
+
+/* 開く閉じるアニメーション */
+#wrapper, #nav {
+  transition: transform 0.5s;
+}
+
 /* ===== ヘッダーにボタンを配置 ===== */
 header {
   padding: 16px 0;

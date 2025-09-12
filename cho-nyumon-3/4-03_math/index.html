@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    #pi, #floor {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>コンソールにアウトプット</h1>
+      <h2>開発ツール</h2>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section>
+      	<p>円周率は <span id="pi"></span> です。</p>
+      	<p>ふつうに切り捨てると <span id="floor"></span> です。</p>
+      	<p>小数点第２位で切り捨てると <span id="output"></span> です。</p>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script>
+    'use strict';
+    
+    $(function(){
+	    function point(num, digit) {
+	      const mover = 10 ** digit;
+	      return Math.floor(num * mover) / mover;
+	    }
+
+	    $('#pi').text(Math.PI);
+	    $('#floor').text(Math.floor(Math.PI));
+	    $('#output').text(point(Math.PI, 2));
+    });
+    
+  </script>
+</body>
+</html>
