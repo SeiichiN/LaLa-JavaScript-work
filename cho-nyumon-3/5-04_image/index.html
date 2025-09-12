@@ -65,7 +65,7 @@
 
    $(function(){
      $('.thumb').on('click', function() {
-       $('#bigimg').attr('src', this.dataset.image);
+       $('#bigimg').attr('src', $(this).data('image'));
      });
    });
   </script>
