@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/special.css">
 </head>
 <body>
-  <div id="wrapper">
+  <div id="wrapper" class="drawer">
 	  <header>
 	    <div class="container">
 	      <div class="title-block">
@@ -56,7 +56,7 @@
 	  </footer>
   </div> <!-- #wrapper end -->
   
-  <nav id="nav">
+  <nav id="nav" class="drawer">
     <div class="logo"><img src="logo.svg" alt=""></div>
     <ul>
       <li><a href="#">Home</a></li>
@@ -70,13 +70,16 @@
   <script>
     'use strict';
 
+   const drawers = document.querySelectorAll('.drawer');
+   
    document.getElementById('open_nav').onclick = function() {
-     document.getElementById('wrapper').classList.toggle('show');
-     document.getElementById('nav').classList.toggle('show');
+     drawers.forEach(function(item){
+       item.classList.toggle('show');
+     });
    }
    
   </script>
 </body>
 </html>
 
-<!-- 修正時刻: Tue 2025/09/16 17:14:22 -->
+<!-- 修正時刻: Wed 2025/09/17 07:19:02 -->
