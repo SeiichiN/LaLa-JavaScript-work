@@ -1,23 +1,24 @@
 'use strict';
 
-const lang = document.querySelector('html').lang;
+$(function(){
+	const lang = $('html').attr('lang');
 
-switch (lang) {
-  case 'ja':
-    document.querySelector('option[value="index.html"]').selected = true;
-    break;
-  case 'en':
-    document.querySelector('option[value="index-en.html"]').selected = true;
-    break;
-  case 'zh':
-    document.querySelector('option[value="index-zh.html"]').selected = true;
-    break;
-}
+	switch (lang) {
+	  case 'ja':
+	    $('option[value="index.html"]').prop('selected', true);
+	    break;
+	  case 'en':
+	    $('option[value="index-en.html"]').prop('selected', true);
+	    break;
+	  case 'zh':
+	    $('option[value="index-zh.html"]').prop('selected', true);
+	    break;
+	}
 
-// form要素
-const $form = document.getElementById('form');
+	// name="select"
+	$('select[name="select"]').on('change', function(){
+	  location.href = $(this).val();  // this.value でも可
+	});
 
-// name="select"
-$form.select.onchange = function() {
-  location.href = $form.select.value;
-};
+}); // $() end
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .list {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    .list h2 {
+      margin: 0 0 2em 0;
+      font-size: 16px;
+      text-align: center;
+    }
+    .seminar {
+      float: left;
+      margin: 10px 10px 10px 0;
+      border: solid 1px #23628f;
+      padding: 4px;
+      width: 25%;
+    }
+    .check {
+      margin: 0;
+      padding: 8px;
+      font-size: 12px;
+      color: #fff;
+      background-color: #23528f;
+      text-align: center;
+      cursor: pointer;
+    }
+    .red {
+    	background-color: #e33a6d;
+    }
+    .green {
+      background-color: #7bc52e;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>空き席状況をチェック</h1>
+      <h2>データをもとに表示を切り替える</h2>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section>
+        <ul class="list">
+          <li class="seminar" id="js">
+            <h2>JavaScript勉強会</h2>
+            <p class="check">空き席状況を確認</p>
+          </li>
+          <li class="seminar" id="security">
+            <h2>セキュリティ対策講座</h2>
+            <p class="check">空き席状況を確認</p>
+          </li>
+          <li class="seminar" id="aiux">
+            <h2>AIを利用したUX設計</h2>
+            <p class="check">空き席状況を確認</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    'use strict';
+    
+    $(function(){
+      $.ajax({
+         url: 'data.json',
+         dataType: 'json'})
+       .done(function(data){
+          data.forEach(function(item){
+            if (item.crowded === 'yes') {
+              const idName = '#' + item.id;
+              $(idName).find('.check').addClass('crowded');
+            }
+          });
+         })
+       .fail(function(){
+          alert('読込エラー');
+      });  // $.ajax end
+      
+      $('.check').on('click', function(){
+        if ($(this).hasClass('crowded')) {
+          $(this).text('残席わずか').addClass('red');
+        } else {
+          $(this).text('お席あります').addClass('green');
+        }
+      });
+    });  // jquery end
+  </script>
+</body>
+</html>

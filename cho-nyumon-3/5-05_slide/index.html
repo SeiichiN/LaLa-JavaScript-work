@@ -74,54 +74,57 @@
       <p>JavaScript Sample</p>
     </div>
   </footer>
-  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
     'use strict';
     
-    const images = [
-                    'images/image1.jpg',
-                    'images/image2.jpg',
-                    'images/image3.jpg',
-                    'images/image4.jpg',
-                    'images/image5.jpg',
-                   ];
-    images.forEach(function(item) {
-      preloadImage(item);
-    });
-    let current = 0;
+    $(function(){
+	    const images = [
+	                    'images/image1.jpg',
+	                    'images/image2.jpg',
+	                    'images/image3.jpg',
+	                    'images/image4.jpg',
+	                    'images/image5.jpg',
+	                   ];
+	    images.forEach(function(item) {
+	      preloadImage(item);
+	    });
+	    let current = 0;
+	    
+	    function preloadImage(path) {
+	      $('<img>').attr('src', path);
+	    }
     
-    function preloadImage(path) {
-      let imgTag = document.createElement('img');
-      imgTag.src = path;
-    }
-    
-    // 画像を変更する関数
-    // 引数: num -- -1 / 1 のみ
-    //   1 -- 次の画像
-    //  -1 -- 前の画像
-    function changeImage(num) {
-      // currentが0～4の範囲になるようにチェック
-      if (current + num >= 0 && current + num < images.length) {
-        current += num;
-        document.getElementById('main_image').src = images[current];
-        pageNum();
-      }
-    }
-    
-    function pageNum() {
-      document.getElementById('page').textContent = 
-        `${current + 1}/${images.length}`
-    }
-    
-    pageNum();
-    
-    document.getElementById('prev').onclick = function() {
-    	changeImage(-1);
-    };
+	    // 画像を変更する関数
+	    // 引数: num -- -1 / 1 のみ
+	    //   1 -- 次の画像
+	    //  -1 -- 前の画像
+	    function changeImage(num) {
+	      // currentが0～4の範囲になるようにチェック
+	      if (current + num >= 0 && current + num < images.length) {
+	        current += num;
+	        $('#main_image').attr('src', images[current]);
+	        pageNum();
+	      }
+	    }
+	    
+	    function pageNum() {
+	      $('#page').text(`${current + 1}/${images.length}`);
+	    }
+	    
+	    pageNum();
+	    
+	    $('#prev').on('click', function(){
+	    	changeImage(-1);
+	   	});
 
-    document.getElementById('next').onclick = function() {
-    	changeImage(1);
-    };
+	    $('#next').on('click', function() {
+	    	changeImage(1);
+	    });
+    
+    });
+    
   </script>
 </body>
 </html>

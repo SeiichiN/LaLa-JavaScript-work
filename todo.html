@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title></title>
+    <style>
+     th { text-align: left; }
+     table { border-collapse: collapse; }
+     #todo-table th,
+     #todo-table td {
+       border: solid 1px #aaa;
+       padding: 5px 8px;
+     }
+     .input-area {
+       position: fixed;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       background-color: #ddd;
+       padding: 10px;
+       display: none;
+     }
+     #content { width: 300px; }
+     .input-area th { width: 50px; }
+     .add-ok-row { text-align: right; }
+     #add-ok {
+       display: inline-block;
+       background-color: #fff;
+       padding: 0 10px;
+     }
+
+     .sanko {
+       font-size: 12px;
+       margin: 0;
+     }
+     #sanko {
+       text-decoration: underline;
+       cursor: pointer;
+     }
+     .about-area {
+       display: none;
+       position: fixed;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       background-color: #cecece;
+       padding: 20px;
+     }
+     .about-area h2 {
+       margin-top: 0;
+     }
+     .about-area p {
+       margin: 0 0 0 2em;
+     }
+     .show {
+       display: block;
+     }
+     #error {
+       font-size: 12px;
+       color: #f00;
+     }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>TODOリスト</h1>
+    </header>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>内容</th>
+            <th>登録日</th>
+            <th>期限日</th>
+          </tr>
+        </thead>
+        <tbody id="todo-table">
+        </tbody>
+      </table>
+      <button type="button" id="add-btn">追加</button>
+      <div class="input-area">
+        <table>
+          <tr>
+            <th>内容</th>
+            <td><input type="text" id="content"/></td>
+          </tr>
+          <tr>
+            <th>期限日</th>
+            <td><input type="text" id="limited"
+                       placeholder="0000/00/00"/></td>
+          </tr>
+        </table>
+        <div id="error"></div>
+        <div class="add-ok-row"><span id="add-ok">OK</span></div>
+      </div><!-- #input-area end -->
+    </main>
+    <footer>
+      <small>&copy; 2025 Seiichi Nukayama</small>
+      <p class="sanko"><span id="sanko">参考にしたサイト・本</span></p>
+    </footer>
+    <div class="about-area">
+      <h2>参考にしたサイト・本</h2>
+      <p>このアプリを作成するにあたって、以下のサイト・本を参考にしました。</p>
+      <ul>
+        <li>
+          <cite>JavaScript「超」入門 第2版</cite>
+          <p>狩野 祐東・著 / SBクリエイティブ</p>
+        </li>
+        <li>
+          <cite>
+            <a href="https://codelikes.com/javascript-oninput/"
+               target="_blank">
+              JavaScriptでinputイベントを設定する(changeとの違いは？)
+            </a>
+          </cite>
+        </li>
+        <li>
+          <cite>
+            <a href="https://qiita.com/iLLviA/items/b6bf680cd2408edd050f"
+               target="_blank">
+              JavaScript 正規表現まとめ
+            </a>
+          </cite>
+        </li>
+        <li>
+          <cite>
+            <a href="https://qiita.com/kiwaki/items/5995a38e6577dee12767"
+               target="_blank">
+              [JavaScript]複数の子要素を削除する。
+            </a>
+          </cite>
+        </li>
+        <li>
+          <cite>
+            <a href="https://web-tsuku.life/classlist-toggle/"
+               target="_blank">
+              classList.toggle()でクラスの有無を切り替える
+            </a>
+          </cite>
+        </li>
+        <li>
+          <cite>
+            <a href="https://web-tsuku.life/classlist-contains/"
+               target="_blank">
+              classList.contains()でクラス名の有無で条件分岐の判定する
+            </a>
+          </cite>
+        </li>
+      </ul>
+    </div>
+    <script>
+     'use strict';
+
+     /**************************************
+        データの形式: todo_list配列
+        --------------------------
+        [
+          {
+            no: 1,
+            content: '犬の散歩をする',
+            created_at: '2025/08/21',
+            limited_at: '2025/08/28'
+          },
+          {
+            no: 2,
+            content: 'Webアプリをつくる',
+            created_at: '2025/09/09',
+            limited_at: '2025/09/18'
+          },
+          {
+            no: 3,
+            content: 'お弁当をつくる',
+            created_at: '2025/08/12',
+            limited_at: '2025/08/13'
+          }
+        ]
+     **************************************/
+
+     
+     /*
+      * 内容、作成日、期限日に通し番号をつけて
+      * 配列todo_list に追加する
+      *   『JavaScript「超」入門 第2版』p130, p271
+      * todo_list は todoオブジェクトの配列である。
+      */  
+     function add(content, created_at, limited_at) {
+       no++;
+       const todo = {
+         no: no,               // 通し番号
+         content: '',          // 内容
+         created_at: '',       // 作成日
+         limited_at: ''        // 期限日
+       };
+       todo.no = no;
+       todo.content = content;
+       todo.created_at = created_at;
+       todo.limited_at = limited_at;
+       todo_list.push(todo);
+     }
+
+     /*
+      * tbodyの中のtr要素をすべて削除する
+      * thead要素とその子要素は削除しない
+      *   <table>
+      *     <thead>
+      *       <tr>
+      *         <th>No</th>
+      *         <th>内容</th>
+      *            (以下、省略)
+      *     </thead>
+      *     <tbody id="todo-table">
+      *       <tr>
+      *         <td>No</td>
+      *            (以下、省略)
+      * 
+      * 参考にしたサイト
+      *   [JavaScript]複数の子要素を削除する。
+      *   https://qiita.com/kiwaki/items/5995a38e6577dee12767
+      */
+     function trunc_list() {
+       const parent = document.getElementById('todo-table');
+       while (parent.firstChild) {
+         parent.removeChild(parent.firstChild);
+       }
+     }
+
+     /*
+      * table要素のtbody要素にtr要素を追加する
+      * 『JavaScript「超」入門 第2版』p136
+      */
+     function print_list() {
+       trunc_list();
+       for (let item of todo_list) {
+         const list = `
+             <tr>
+               <td>${item.no}</td>
+               <td>${item.content}</td>
+               <td>${item.created_at}</td>
+               <td>${item.limited_at}</td>
+             </tr>
+         `;
+         document.getElementById('todo-table')
+                 .insertAdjacentHTML('beforeend', list);
+       }
+     }
+
+     /*
+      * 今日の日付を取得して '2025/08/09' の形式で返す
+      * 『JavaScript「超」入門 第2版』p166, p197
+      */
+     function getToday() {
+       const now = new Date();
+       const year = now.getFullYear();
+       const _month = now.getMonth() + 1;
+       const month = String(_month).padStart(2, '0');
+       const _day = now.getDate();
+       const day = String(_day).padStart(2, '0');
+       return `${year}/${month}/${day}`
+     }
+
+     /*
+      * 日付の形式を '2025/8/9' を '2025/08/09' に整形する
+      * 引数: dateTxt -- '2025/8/9' の形式の文字列である。
+      *       '2025/08/09' になっているかもしれない
+      *       これを '2025/08/09' の形式に統一する。           
+      *   【JavaScript入門】文字列の分割と切り出し(substr/substring/slice)
+      *   https://www.sejuku.net/blog/21155
+      */
+     function dateFormed(dateTxt) {
+       const date = dateTxt.split('/');
+       date[1] = ('0' + date[1]).substr(-2);
+       date[2] = ('0' + date[2]).substr(-2);
+       return date.join('/');
+     }
+
+     /*
+      * inputボックスに入力中に文字種をチェックする
+      * inputボックスに1文字入力するごとに、この関数が動作する。
+      *   document.querySelector('input[type="text"]').oninput =
+      *      function() { }
+      * 引数: limitedTxt -- 日付文字列(期限日)
+      *       期待される文字列 '2025/8/9' あるいは '2025/08/09'
+      *       もし他の文字が入力されたらエラーメッセージを表示する。
+      * 
+      *   JavaScriptでinputイベントを設定する(changeとの違いは？)
+      *   https://codelikes.com/javascript-oninput/
+      */
+     function limitedCheck(limitedTxt) {
+       const pattern = /^[0-9]+\/?[0-9]*\/?[0-9]*$/;
+       const result = limitedTxt.match(pattern);
+       if (result === null) {
+         $error.textContent = '日付ではありません';
+       } else {
+         $error.textContent = '';
+       }
+     }
+
+     /*
+      * textが空であるかどうかを調べる。
+      * 引数:
+      *   text -- $content.value / $limited.value
+      *           のどちらか
+      *   mode -- 'content' / 'limited'
+      * 戻り値:
+      *   空の場合 true
+      *   空でない false
+      */
+     function isEmptyCheck(text, mode) {
+       let errorTxt;
+       switch (mode) {
+         case 'content':
+           errorTxt = '内容が未入力です';
+           break;
+         case 'limited':
+           errorTxt = '日付が未入力です';
+           break;
+       }
+       if (text === null || text === '') {
+         $error.textContent = errorTxt;
+         return true;
+       }
+       return false;
+     }
+
+     /*
+      * 入力された「内容」が空であるかどうかを
+      * 調べる。
+      * 引数:
+      *   content -- 内容文字列 $content.value
+      * 戻り値:
+      *   isEmptyCheck()の結果を返す。
+      */
+     function contentIsEmptyCheck(content) {
+       return isEmptyCheck(content, 'content');
+     }
+
+     /*
+      * 入力された「日付」が空であるかどうかを
+      * 調べる。
+      * 引数:
+      *   limited -- 内容文字列 $limited.value
+      * 戻り値:
+      *   isEmptyCheck()の結果を返す。
+      */
+     function limitedIsEmptyCheck(limited) {
+       return isEmptyCheck(limited, 'limited');
+     }
+
+
+     /*****************************
+        グローバル変数・定数
+      ******************************/
+     const todo_list = [];
+     let no = 0;                // todoの通し番号
+     let input_area = false;    // input_area要素が表示していたら true
+     const $add_btn = document.getElementById('add-btn');
+     const $input_area = document.querySelector('.input-area');
+     const $error = document.getElementById('error');
+
+     // <input type="text" id="limited">
+     const $limited_global = document.getElementById('limited');
+     // inputボックスに入力している最中に文字種をチェックする
+     $limited_global.oninput = function() {
+       limitedCheck($limited_global.value);
+     }
+
+     /*****************************
+        初期データの登録
+      ******************************/
+     add("犬の散歩をする", '2025/08/21', '2025/08/28');
+     add("Webアプリをつくる", '2025/09/09', '2025/09/18');
+     add("お弁当をつくる", '2025/08/12', '2025/08/13');
+     print_list();
+
+     /**************************************
+        イベント
+      **************************************/
+     /*
+      * 「追加」ボタンをクリックすると、入力欄が現れる。
+      * 
+      *   classList.toggle()でクラスの有無を切り替える
+      *   https://web-tsuku.life/classlist-toggle/
+
+      *   classList.contains()でクラス名の有無で条件分岐の判定する
+      *   https://web-tsuku.life/classlist-contains/
+      */
+     $add_btn.onclick = function() {
+       $input_area.classList.toggle('show');
+       if ($input_area.classList.contains('show')) {
+         $add_btn.textContent = '取消';
+       } else {
+         $add_btn.textContent = '追加';
+       }
+     }
+
+     /*
+      * 入力ダイアログの「OK」ボタンをクリックすると
+      * 入力した内容が todo_listに追加され、
+      * 一覧表示が更新される。
+      * その後、この入力ダイアログが消える。
+      */ 
+     document.getElementById('add-ok').onclick = function() {
+       const $content = document.getElementById('content');
+       if (contentIsEmptyCheck($content.value)) return;
+       const $limited = document.getElementById('limited');
+       if (limitedIsEmptyCheck($limited.value)) return;
+       const limitedTxt = dateFormed($limited.value);
+       add($content.value, getToday(), limitedTxt);
+       print_list();
+       $content.value = '';
+       $limited.value = '';
+       $add_btn.textContent = '追加';
+       $input_area.classList.toggle('show');
+     }
+
+     /*
+      * 「参考にしたサイト」をクリックすると「参考にしたサイト」の
+      *  ボックスが表示され、そのボックスをクリックすると、
+      *  そのボックスが消える。
+      *    【JavaScript】class属性を追加するclassList.add()
+      *    https://web-tsuku.life/javascript-classlist-add/
+      */
+     document.getElementById('sanko').onclick = function() {
+       document.querySelector('.about-area').classList.toggle('show');
+     }
+     document.querySelector('.about-area').onclick = function() {
+       this.classList.remove('show');
+     }
+    </script>
+  </body>
+</html>
+
+<!-- 修正時刻: Tue 2025/09/16 09:26:17 -->

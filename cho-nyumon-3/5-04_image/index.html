@@ -58,22 +58,18 @@
       <p>JavaScript Sample</p>
     </div>
   </footer>
-  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
     'use strict';
     
-    const thumbs = document.querySelectorAll('.thumb');
+    $(function(){
+	    $('.thumb').on('click', function(){
+	    	$('#bigimg').attr('src', $(this).data('image'));
+	    });
+    });  // jquery end
     
-    // 配列.forEach(無名関数)
-    //     配列の要素それぞれに無名関数を実行する
     
-    thumbs.forEach( function(item, index) {
-    	item.onclick = function() {
-    	  document.querySelector('#bigimg').src = this.dataset.image;
-    	  // this--クリックした要素
-    	};
-    });
-
   </script>
 </body>
 </html>
