@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>サイコロ</h1>
+  
+  <button id="btn">サイコロをふる</button>
+  
+  <div id="place"></div>
+  
+  <script>
+    'use strict';
+    
+    /*
+     * 1～6の数字をランダムに生成し、その数字を
+     * div#placeに追加する
+     */
+    function roll(){
+      const num = Math.floor(Math.random() * 6) + 1;
+      document.getElementById('place')
+              .insertAdjacentHTML('beforeend', `<div>${num}</div>`);
+    }
+    
+    /*
+     * 最初のクリックのときだけ、インターバルを実行する。
+     * それ以外の場合は実行しない。
+     */
+    let isClicked = false;
+    document.getElementById('btn').onclick = function(){
+      if (isClicked === false) {
+        let id = setInterval(roll, 1000);
+        console.log(id);
+      }
+      isClicked = true;
+    }
+  </script>
+</body>
+</html>
