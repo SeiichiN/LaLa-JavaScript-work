@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>問題1</title>
+    <style>
+     header h1,
+     section {
+       width: 300px;
+       margin: 0 auto;
+     }
+     header {
+       margin-bottom: 1rem;
+     }
+     img {
+       max-height: 100%;
+     }
+     figure {
+       height: 400px;
+     }
+     .btn-area {
+       text-align: right;
+     }
+     #btn {
+       cursor: pointer;
+     }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>問題1</h1>
+    </header>
+    <section>
+      <figure>
+        <img src="img/sit_boy.png" alt="座っている少年" class="boy" />
+      </figure>
+      <div class="btn-area">
+        <button id="btn" type="button">クリック</button>
+      </div>
+    </section>
+
+    <script>
+     'use strict';
+
+     document.getElementById('btn').onclick = function() {
+       document.querySelector('.boy').src = 'img/stand_boy.png';
+     }
+    </script>
+  </body>
+</html>
+
+<!-- 修正時刻: Wed 2024/09/18 07:47:17 -->
