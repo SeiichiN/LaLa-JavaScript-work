@@ -1,3 +1,0 @@
-【初心者向け】JavaScript「fetch」が分からない？郵便配達で理解してみよう
-https://school.learning-next.app/blog/javascript/javascript-fetch
-
