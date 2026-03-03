@@ -17,10 +17,6 @@
   <main>
   	<div class="container">
   	  <section>
-  	  
-  	  	<p id="choice">ここに日時を表示します</p>
-  	  	<h3 id="wanko">わんわん</h3>
-  	  
   	  </section>
   	</div>
   </main>
@@ -29,12 +25,21 @@
   	  <p>JavaScript Sample</p>
   	</div>
   </footer>
-  
   <script>
     'use strict';
-    console.log(document.getElementById('choice').textContent);
-    document.getElementById('choice').textContent = 2 + 3;   // new Date();
-    document.getElementById('wanko').innerHTML = '<span style="color:red">ううう</span>';
+    
+    // 年齢を入力してもらう
+    // age が 20未満なら、「お酒は二十歳から」とtextContentに表示。
+    // age が 20以上なら、「飲み過ぎに注意しましょう」と
+    //   textContent に表示する。
+    
+    
+    const age = window.prompt('何歳ですか？');
+    if (   ) {
+      
+    } else {
+    
+    }
   </script>
 </body>
 </html>
