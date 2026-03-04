@@ -26,17 +26,14 @@
   	</div>
   </footer>
   <script>
-    'use strict';
+   'use strict';
 
-   function plus(num) {
-     return num + 1;
+   function total(price) {
+     const tax = 0.1;
+     return price + price * tax;
    }
-   
-    let i = 1;
-    while (i <= 10) {
-      console.log(i);
-      i = plus(i)
-    }
+
+   console.log(total(1000));
   </script>
 </body>
 </html>
