@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+  	<div class="container">
+  		<h1>コンソールにアウトプット</h1>
+  		<h2>開発ツールを開く・閉じる</h2>
+  	</div>
+  </header>
+  <main>
+  	<div class="container">
+  	  <section>
+        <p id="msg"></p>
+  	  </section>
+  	</div>
+  </main>
+  <footer>
+  	<div class="container">
+  	  <p>JavaScript Sample</p>
+  	</div>
+  </footer>
+  <script>
+    'use strict';
+    
+    // 年齢を入力してもらう
+    // age が 20未満なら、「お酒は二十歳から」とtextContentに表示。
+    // age が 20以上なら、「飲み過ぎに注意しましょう」と
+    //   textContent に表示する。
+    
+    // 90以上が評価されない    
+    const age = window.prompt('何歳ですか？');
+    let message;
+    if (age < 20) {
+        message = 'お酒は二十歳から';
+    } else if (age > 19) {
+        message = '飲み過ぎに注意しましょう';
+    } else if (age > 90) {
+        message = 'ご長寿ですね';
+    }
+    document.getElementById('msg').textContent = message;
+  </script>
+</body>
+</html>

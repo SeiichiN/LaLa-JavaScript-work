@@ -17,10 +17,6 @@
   <main>
   	<div class="container">
   	  <section>
-  	  
-  	  	<p id="choice">ここに日時を表示します</p>
-  	  	<h3 id="wanko">わんわん</h3>
-  	  
   	  </section>
   	</div>
   </main>
@@ -29,14 +25,17 @@
   	  <p>JavaScript Sample</p>
   	</div>
   </footer>
-  
   <script>
     'use strict';
-    console.log(document.getElementById('choice').textContent);
-    document.getElementById('choice').textContent = 2 + 3;   // new Date();
-    document.getElementById('wanko').innerHTML = '<span style="color:red">ううう</span>';
+    
+    const answer = window.prompt('ヘルプを見ますか？');
+    if (answer === 'yes') {
+      window.alert('タップでジャンプ、障害物をよけます');
+    } else if (answer === 'no') {
+      window.alert('ゲーム起動中...');
+    } else {
+      window.alert('yesかnoでお答えください');
+    }
   </script>
 </body>
 </html>
-
-<!-- 修正時刻: Thu 2026/03/05 06:48:27 -->

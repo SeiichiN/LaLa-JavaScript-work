@@ -17,10 +17,6 @@
   <main>
   	<div class="container">
   	  <section>
-  	  
-  	  	<p id="choice">ここに日時を表示します</p>
-  	  	<h3 id="wanko">わんわん</h3>
-  	  
   	  </section>
   	</div>
   </main>
@@ -29,14 +25,19 @@
   	  <p>JavaScript Sample</p>
   	</div>
   </footer>
-  
   <script>
     'use strict';
-    console.log(document.getElementById('choice').textContent);
-    document.getElementById('choice').textContent = 2 + 3;   // new Date();
-    document.getElementById('wanko').innerHTML = '<span style="color:red">ううう</span>';
+    
+    const now = new Date();
+    const hour = now.getHours();
+    
+    if (hour >= 19 && hour < 21) {
+      window.alert('お弁当30%OFF!');
+    } else if (hour === 9 || hour === 15) {
+      window.alert('お弁当1個買ったら1個おまけ！');
+    } else {
+      window.alert('お弁当はいかがですか');
+    }
   </script>
 </body>
 </html>
-
-<!-- 修正時刻: Thu 2026/03/05 06:48:27 -->
