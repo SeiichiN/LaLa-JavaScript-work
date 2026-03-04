@@ -17,6 +17,7 @@
   <main>
   	<div class="container">
   	  <section>
+        <p id="msg"></p>
   	  </section>
   	</div>
   </main>
@@ -33,13 +34,17 @@
     // age が 20以上なら、「飲み過ぎに注意しましょう」と
     //   textContent に表示する。
     
-    
+    // 90以上が評価されない    
     const age = window.prompt('何歳ですか？');
-    if (   ) {
-      
-    } else {
-    
+    let message;
+    if (age < 20) {
+        message = 'お酒は二十歳から';
+    } else if (age > 19) {
+        message = '飲み過ぎに注意しましょう';
+    } else if (age > 90) {
+        message = 'ご長寿ですね';
     }
+    document.getElementById('msg').textContent = message;
   </script>
 </body>
 </html>

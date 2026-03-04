@@ -28,13 +28,15 @@
   <script>
     'use strict';
     
-    const answer = window.prompt('ヘルプを見ますか？');
-    if (answer === 'yes') {
-      window.alert('タップでジャンプ、障害物をよけます');
-    } else if (answer === 'no') {
-      window.alert('ゲーム起動中...');
+    const now = new Date();
+    const hour = now.getHours();
+    
+    if (hour >= 19 && hour < 21) {
+      window.alert('お弁当30%OFF!');
+    } else if (hour === 9 || hour === 15) {
+      window.alert('お弁当1個買ったら1個おまけ！');
     } else {
-      window.alert('yesかnoでお答えください');
+      window.alert('お弁当はいかがですか');
     }
   </script>
 </body>
