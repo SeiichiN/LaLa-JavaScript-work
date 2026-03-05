@@ -1,0 +1,21 @@
+comparison.html
+
+-------------
+const number = 1 + Math.floor(Math.random() * 99);
+
+let isRepeat = true;
+
+while (isRepeat) {
+  const answer = parseInt(prompt('1..99 > '));
+  if (answer === number) {
+    alert('当たりです');
+    isRepeat = false;
+  } else if (answer > number) {
+    alert('残念でした。大きすぎます');
+  } else if (answer < number) {
+    alert('残念でした、小さすぎます');
+  }
+}
+alert('終わります');
+
+;; 修正時刻: Fri 2026/03/06 06:05:25

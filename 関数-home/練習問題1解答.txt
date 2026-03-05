@@ -1,0 +1,27 @@
+omikuji.html
+
+----------------
+'use strict';
+
+function omikuji() {
+  const num = 1 + Math.floor(Math.random() * 5);
+  if (num === 1) {
+    return "大吉";
+  } else if (num === 2) {
+    return "中吉";
+  } else if (num === 3) {
+    return "小吉";
+  } else if (num === 4) {
+    return "末吉";
+  } else {
+    return "凶";
+  }
+}
+
+const isOk = confirm('おみくじを引きますか?');
+if (isOk) {
+  omikuji()
+}
+-----------------
+
+;; 修正時刻: Fri 2026/03/06 06:05:25

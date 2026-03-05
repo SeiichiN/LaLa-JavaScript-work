@@ -1,0 +1,19 @@
+logical.html
+
+----------
+'use strict';
+
+function bento(hour) {
+  if (hour === 9 || hour === 15) {
+    return "お弁当を注文すると1個おまけ";
+  } else if (hour >= 19 && hour < 21) {
+    return "お弁当30%オフ!";
+  } else {
+    return "お弁当はいかがですか?";
+  }
+}
+
+count hour = new Date().getHours();
+alert(bento(hour));
+
+;; 修正時刻: Fri 2026/03/06 06:05:25
