@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+  	<div class="container">
+  		<h1>コンソールにアウトプット</h1>
+  		<h2>開発ツールを開く・閉じる</h2>
+  	</div>
+  </header>
+  <main>
+  	<div class="container">
+  	  <section>
+  	  </section>
+  	</div>
+  </main>
+  <footer>
+  	<div class="container">
+  	  <p>JavaScript Sample</p>
+  	</div>
+  </footer>
+  <script>
+    'use strict';
+
+    let enemy = 100;
+    let count = 0;
+
+    alert('戦闘スタート!')
+
+    while (enemy > 0) {
+      const attack = 1 + Math.floor(Math.random() * 30);
+      console.log('モンスターに' + attack + 'のダメージ');
+      enemy -= attack;
+      count += 1;
+    }
+    console.log(count + '回でモンスターを倒した!');
+  </script>
+  <script>
+    console.log('enemyの値:' + enemy);
+  </script>
+</body>
+</html>
