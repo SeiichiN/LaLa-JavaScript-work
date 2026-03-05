@@ -17,9 +17,6 @@
   <main>
   	<div class="container">
   	  <section>
-  	  
-  	    <p id="output"></p>
-  	  
   	  </section>
   	</div>
   </main>
@@ -31,20 +28,11 @@
   <script>
     'use strict';
     
-    function total(price) {
-      const tax = 0.1;
-      return price + price * tax;
+    let i = 10;
+    while (i > 0) {
+      console.log(i + '枚');
+      i -= 2;
     }
-
-    console.log('コーヒーメーカーの値段は' + 
-                total(8000) + 
-                '円（税込）です');
-    document.getElementById('output').textContent
-             = 'コーヒーメーカーの値段は' + 
-                total(8000) + 
-                '円（税込）です'
   </script>
 </body>
 </html>
-
-<!-- 修正時刻: Thu 2026/03/05 16:59:17 -->

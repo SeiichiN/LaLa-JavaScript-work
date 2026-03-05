@@ -1,29 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <title></title>
-  </head>
-  <body>
-    <h1></h1>
-    <script>
-    'use strict';
-
-     const kuji = Math.floor(Math.random() * 5) + 1;
-     if (kuji === 1) {
-       alert('大吉');
-     } else if (kuji === 2) {
-       alert('中吉');
-     } else if (kuji === 3) {
-       alert('小吉');
-     } else if (kuji === 4) {
-       alert('末吉');
-     } else if (kuji === 5) {
-       alert('凶');
-     }
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>おみくじ</h1>
+	<script>
+	  'use strict';
+	  
+	  let number = 1 + Math.floor(Math.random() * 5);
+	  let message;
+	  if (number === 1) {
+	    message = '大吉';
+	  } else if (number === 2) {
+	    message = '中吉';
+	  } else if (number === 3) {
+	    message = '小吉';
+	  } else if (number === 4) {
+	    message = '末吉';
+	  } else {
+	    message = '凶';
+	  }
+	  alert(message);
+	</script>
+</body>
 </html>
 
-<!-- 修正時刻: Thu 2026/03/05 09:52:28 -->
+
+<!-- 菫ｮ豁｣譎ょ綾: Thu 2026/03/05 17:00:41 -->
