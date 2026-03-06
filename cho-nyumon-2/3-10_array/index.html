@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+  	<div class="container">
+  		<h1>コンソールにアウトプット</h1>
+  		<h2>開発ツールを開く・閉じる</h2>
+  	</div>
+  </header>
+  <main>
+  	<div class="container">
+  	  <section>
+  	    <h1 id="h1-text">やることリスト</h1>
+  	    <ul id="list"></ul>
+  	    <div id="animal">
+  	      <p>馬</p>
+  	    </div>
+  	  </section>
+  	</div>
+  </main>
+  <footer>
+  	<div class="container">
+  	  <p>JavaScript Sample</p>
+  	</div>
+  </footer>
+  <script>
+    'use strict';
+    
+    let todo = [
+        'デザインカンプ作成', 
+        'データ整理',
+        '勉強会申し込み',
+        '牛乳買う',
+      ];
+      
+		todo.push('歯医者に行く');
+
+    for (const item of todo) {
+      const li = `<li>${item}</li>`;
+			document.getElementById('list')
+			        .insertAdjacentHTML('beforeend', li);
+    }
+    
+    document.getElementById('h1-text')
+            .style.color = 'black';
+            
+    document.getElementById('animal')
+            .innerHTML =
+              `<ol>
+                 <li>犬</li>
+                 <li>猫</li>
+              </ol>`;
+  </script>
+</body>
+</html>

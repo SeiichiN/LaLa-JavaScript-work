@@ -10,20 +10,10 @@
 	<script>
 	  'use strict';
 	  
-	  let number = 1 + Math.floor(Math.random(1) * 5);
-	  let message;
-	  if (number === 1) {
-	    message = '大吉';
-	  } else if (number === 2) {
-	    message = '中吉';
-	  } else if (number === 3) {
-	    message = '小吉';
-	  } else if (number === 4) {
-	    message = '末吉';
-	  } else {
-	    message = '凶';
-	  }
-	  alert(message);
+	  let kuji = ['大吉', '中吉', '小吉', '末吉', '凶'];
+	  
+	  let number = Math.floor(Math.random() * 5);
+	  alert(kuji[number]);
 	</script>
 </body>
 </html>

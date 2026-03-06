@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    table { border-collapse: collapse; }
+    td    { border: solid 1px #444; padding: 5px 8px; }
+    #price::after {
+      content: " 円";
+    }
+  </style>
+</head>
+<body>
+  <header>
+  	<div class="container">
+  		<h1>コンソールにアウトプット</h1>
+  		<h2>開発ツールを開く・閉じる</h2>
+  	</div>
+  </header>
+  <main>
+  	<div class="container">
+  	  <section>
+  	    <table id="table">
+          <tr>
+            <th>タイトル</th>
+            <th>値段</th>
+            <th>在庫</th>
+          </tr>
+  	    </table>
+  	  </section>
+  	</div>
+  </main>
+  <footer>
+  	<div class="container">
+  	  <p>JavaScript Sample</p>
+  	</div>
+  </footer>
+  <script>
+    'use strict';
+
+   let books = [];
+
+   {
+     let jsbook = {};
+	 jsbook['title'] = prompt('本のタイトル');
+	 jsbook['price'] = parseInt(prompt('値段'));
+	 jsbook['stock'] = parseInt(prompt('冊数'));
+     books.push(jsbook);
+   }
+
+   {
+     let jsbook = {};
+	 jsbook['title'] = prompt('本のタイトル');
+	 jsbook['price'] = parseInt(prompt('値段'));
+	 jsbook['stock'] = parseInt(prompt('冊数'));
+     books.push(jsbook);
+   }
+    
+    for (let book of books) {
+      console.log(book);
+      let tr = '<tr>';
+      for (let p in book) {
+        tr += `<td>${book[p]}</td>`;
+      }
+      tr += '</tr>';
+      document.getElementById('table')
+              .insertAdjacentHTML('beforeend', tr);
+    }
+    
+
+  </script>
+</body>
+</html>
+
+<!-- 修正時刻: Fri 2026/03/06 20:29:02 -->
