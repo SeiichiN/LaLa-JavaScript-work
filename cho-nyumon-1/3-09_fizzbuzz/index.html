@@ -17,9 +17,6 @@
   <main>
   	<div class="container">
   	  <section>
-  	  
-  	    <p id="output"></p>
-  	  
   	  </section>
   	</div>
   </main>
@@ -31,16 +28,25 @@
   <script>
     'use strict';
     
-    function total(price) {
-      const tax = 0.1;
-      return price + price * tax;
+    function fizzbuzz(num) {
+      let word;
+      if (num % 3 === 0 && num % 5 === 0) {
+        word = 'fizzbuzz';
+      } else if (num % 3 === 0) {
+        word = 'fizz';
+      } else if (num % 5 === 0) {
+        word = 'buzz';
+      } else {
+        word = num;
+      }
+      return word;
     }
-
-    console.log('コーヒーメーカーの値段は' + 
-                total(8000) + 
-                '円（税込）です');
-    document.getElementById('output').textContent
-             = `コーヒーメーカーの値段は${total(8000)}円（税込）です`
+    
+    let i = 1;
+    while (i <= 30) {
+      console.log(fizzbuzz(i));
+      i++;
+    }
   </script>
 </body>
 </html>

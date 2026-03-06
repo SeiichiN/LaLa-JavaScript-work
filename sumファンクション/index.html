@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>sumファンクション</h1>
+  <script>
+    'use strict';
+
+    function sum(goal) {
+      let total = 0;
+      for (let i=1; i<=goal; ++i) {
+        total = total + i;
+      }
+      return total;
+    }
+
+    let val = parseInt(prompt('いくつまで足しますか？'));
+    console.log(sum(val));
+  </script>
+</body>
+</html>

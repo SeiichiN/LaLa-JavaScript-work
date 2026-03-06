@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    table { border-collapse: collapse; }
+    td    { border: solid 1px #444; padding: 5px 8px; }
+    #price::after {
+      content: " 円";
+    }
+  </style>
+</head>
+<body>
+  <header>
+  	<div class="container">
+  		<h1>コンソールにアウトプット</h1>
+  		<h2>開発ツールを開く・閉じる</h2>
+  	</div>
+  </header>
+  <main>
+  	<div class="container">
+  	  <section>
+  	    <table>
+  	      <tr>
+  	        <td id="title"></td>
+  	        <td id="price"></td>
+  	        <td id="stock"></td>
+  	      </tr>
+  	    </table>
+  	  </section>
+  	</div>
+  </main>
+  <footer>
+  	<div class="container">
+  	  <p>JavaScript Sample</p>
+  	</div>
+  </footer>
+  <script>
+    'use strict';
+
+    let jsbook = {title: 'JavaScript入門',
+                  price: 2500,
+                  stock: 3, };
+    /*
+    document.getElementById('title').textContent = jsbook.title;
+    document.getElementById('price').textContent = jsbook.price;
+    document.getElementById('stock').textContent = jsbook.stock;
+    */
+    
+    for (let p in jsbook) {
+      document.getElementById(p).textContent = jsbook[p];
+    }
+    
+    
+    /*
+    console.log(jsbook);
+    console.log(jsbook.title);
+    console.log(jsbook['price']);
+    jsbook.stock = 10;
+    console.log(jsbook.stock);
+    */
+  </script>
+</body>
+</html>
