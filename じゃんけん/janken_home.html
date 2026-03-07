@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title></title>
+  </head>
+  <body>
+    <h1></h1>
+    <script>
+    'use strict';
+
+     const user = parseInt(prompt('0:グー, 1:チョキ, 2:パー'));
+     const com = Math.floor(Math.random() * 3);
+
+     let message = `user:${user} com:${com} `;
+     if (user === com) {
+       message += 'あいこ'
+     } else if ((user === 0 && com === 1) ||
+                (user === 1 && com === 2) ||
+                (user === 2 && com === 0)) {
+       message += 'userの勝ち';
+     } else {
+       message += 'comの勝ち';
+     }
+     alert(message);
+    </script>
+  </body>
+</html>
+
+<!-- 修正時刻: Sat 2026/03/07 05:44:19 -->
