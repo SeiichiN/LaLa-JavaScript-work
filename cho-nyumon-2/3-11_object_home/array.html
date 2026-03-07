@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title></title>
+  </head>
+  <body>
+    <h1></h1>
+    <script>
+    'use strict';
+
+     let a = 'わん';
+     let b = a;
+     console.log(b);  // 2
+     b = 'にゃあ';
+     console.log(a);  // 2
+
+     // ----------------------
+
+     let c = ['わん', 'ううう'];
+     let d = c;
+     console.log(c, d);
+     d[1] = 'にゃあ';
+     console.log(c, d);
+
+     // ----------------------
+
+     let e = ['わん', 'ううう'];
+     let f = c.concat();  // c.slice()
+     console.log(e, f);
+     f[1] = 'にゃあ';
+     console.log(e, f);
+
+    </script>
+  </body>
+</html>
+
+<!-- 修正時刻: Sat 2026/03/07 05:44:19 -->
