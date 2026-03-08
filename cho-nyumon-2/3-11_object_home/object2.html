@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title></title>
+  </head>
+  <body>
+    <h1></h1>
+    <script>
+    'use strict';
+
+     // 同じオブジェクトを配列に入れられるかどうか。
+     {
+       let animal = [];
+       let dog = { name: 'ポチ' };
+       animal.push(dog);
+       animal.push(dog);
+       console.log(animal);
+     }
+
+     // 追加したオブジェクトの中身を変更
+     {
+       let animal = [];
+       let dog = {};
+       dog.name = 'ポチ';
+       animal.push(dog);
+       dog.name = 'シロ';
+       animal.push(dog);
+       console.log(animal);
+     }
+     
+    </script>
+  </body>
+</html>
+
+<!-- 修正時刻: Sun 2026/03/08 08:32:11 -->

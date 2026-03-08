@@ -10,14 +10,13 @@
     <script>
     'use strict';
 
-    let a = {};
-    a.age = 23;
-    let b = a;
-    b.age = 30;
-    console.log('b', b);
-    console.log('a', a);
+     let a = ['dog'];
+     let b = a;
+     b[0] = 'cat';          // aも変更された!
+     console.log('b', b);
+     console.log('a', a);
     </script>
   </body>
 </html>
 
-<!-- 修正時刻: Sat 2026/03/07 05:44:19 -->
+<!-- 修正時刻: Sun 2026/03/08 17:47:32 -->

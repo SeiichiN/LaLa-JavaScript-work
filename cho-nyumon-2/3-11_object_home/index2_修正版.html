@@ -43,18 +43,14 @@
    'use strict';
 
    let books = [];
-   // メモリ上にオブジェクトが作られ、その場所の先頭番地が
-   // jsbookという変数に代入される。
-   let jsbook = {};
 
-   // オブジェクト本体に情報が書き込まれる。
+   let jsbook = {};
    jsbook['title'] = prompt('本のタイトル');
    jsbook['price'] = parseInt(prompt('値段'));
    jsbook['stock'] = parseInt(prompt('冊数'));
-   // jsbookという番地情報がbooks配列に追加される。
    books.push(jsbook);
 
-   // オブジェクト本体の情報の書き換えがおこなわれる。
+   jsbook = {};
    jsbook['title'] = prompt('本のタイトル');
    jsbook['price'] = parseInt(prompt('値段'));
    jsbook['stock'] = parseInt(prompt('冊数'));

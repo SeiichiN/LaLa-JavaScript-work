@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     table { border-collapse: collapse; }
-    th, td { border: solid 1px #444; padding: 5px 8px; }
-    #price::after {
+    td    { border: solid 1px #444; padding: 5px 8px; }
+    .price::after {
       content: " 円";
     }
   </style>
@@ -42,44 +42,28 @@
   <script>
    'use strict';
 
+   let count = parseInt(prompt('何冊?'));
+   
    let books = [];
-   let jsbook = {};
 
-   /*
-   jsbook['title'] = prompt('本のタイトル');
-   jsbook['price'] = parseInt(prompt('値段'));
-   jsbook['stock'] = parseInt(prompt('冊数'));
-   books.push(jsbook);
-
-   jsbook['title'] = prompt('本のタイトル');
-   jsbook['price'] = parseInt(prompt('値段'));
-   jsbook['stock'] = parseInt(prompt('冊数'));
-   books.push(jsbook);
-   */
-   
-   jsbook['title'] = 'いやいやえん';
-   jsbook['price'] = 1400;
-   jsbook['stock'] = 3;
-   books.push(jsbook);
-
-   jsbook['title'] = 'エルマーと竜';
-   jsbook['price'] = 2500;
-   jsbook['stock'] = 4;
-   books.push(jsbook);
-   
-   /*
+   for (let i=0; i<count; i++) {
+     let jsbook = {};
+     jsbook['title'] = prompt('本のタイトル');
+     jsbook['price'] = parseInt(prompt('値段'));
+     jsbook['stock'] = parseInt(prompt('冊数'));
+     books.push(jsbook);
+   }
+      
    for (let book of books) {
      console.log(book);
-     let ele = '<tr>';
+     let tr = '<tr>';
      for (let p in book) {
-       ele += `<td class="${p}">${book[p]}</td>`;
+       tr += `<td class="${p}">${book[p]}</td>`;
      }
-     ele += '</tr>';
+     tr += '</tr>';
      document.getElementById('table')
-             .insertAdjacentHTML('beforeend', ele);
+             .insertAdjacentHTML('beforeend', tr);
    }
-   */
-
   </script>
 </body>
 </html>
