@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width= , initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>配列練習問題</h1>
+  <script>
+    'use strict';
+
+    // 1
+    let fruits = ['りんご', 'ばなな', 'みかん'];
+    console.log(fruits[0]);
+
+    // 2
+    console.log(fruits[2]);
+
+    // 3
+    let numbers = [10, 20, 30];
+    numbers.push(40);
+
+    // 4
+    let animals = ['いぬ', 'ねこ', 'うさぎ'];
+    console.log(animals.length);
+
+    // 5
+    let colors = ['赤', '青', '黃'];
+    colors[1] = '緑';
+
+    // 6
+    let scores = [50, 70, 90];
+    for (let s of scores) {
+      console.log(s);
+    }
+
+    // 7
+    let names = ['太郎', '花子', '次郎'];
+    for (name of names) {
+      if (name === '花子') {
+        console.log(name);
+      }
+    }
+  </script>
+</body>
+</html>

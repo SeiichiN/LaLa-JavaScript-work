@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>オブジェクト</h1>
+  <script>
+    'use strict';
+    {
+      // 1
+      let person = {
+        name: 'Taro',
+        age: 20
+      }
+      console.log('名前', person.name);
+      console.log('年齢', person['age']);
+    }
+
+    // 2
+    let person = {
+      name: 'Hanako',
+      age: 23,
+    };
+    person.country = 'Japan';
+    console.log(person.country);
+
+    // 3
+    let dog = {
+      name: 'Pochi',
+      type: 'Shiba'
+    };
+    console.log(dog.name);
+    console.log(dog['type']);
+
+    // 4
+    let book = {
+      title: 'Old Title',
+      author: 'Tanaka'
+    };
+    book.title = 'New Title';
+    book['title'] = 'New Title';
+    console.log(book.title);
+
+    // 5
+    let student = {
+      name: 'Ken',
+      score: 90
+    };
+    console.log(`名前:${student.name} 点数:${student.score}点`);
+
+    // 6
+    let myProfile = {
+      name: '山本',
+      age: 34,
+      hobby: '料理'
+    };
+    console.log(`名前:${myProfile.name} 趣味:${myProfile.hobby}`)
+
+    // 7
+    let item = {
+      name: 'りんご',
+      price: 120,
+      quantity: 5 
+    }
+    console.log(item.price * item.quantity);
+    
+    // 8
+    let fruits = [
+      { name: 'りんご', price: 100 },
+      { name: 'みかん', price: 80 },
+      { name: 'ぶどう', price: 200 },
+    ];
+    console.log(fruits[1].price);
+  </script>
+</body>
+</html>

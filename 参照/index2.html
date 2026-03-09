@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>参照</h1>
+  <script>
+    'use strict';
+    
+    {
+      let a = 'dog';
+      let b = a;     // 値がコピー・代入
+      b = 'cat';
+    }
+    
+    let a = { name: 'Taro', age: 15 };
+    let b = a;      // aの場所情報
+    // a も b も同じものを指し示している
+    b.name = 'Hanako';
+    b.age = 23;
+    console.log('a', a);
+    console.log('b', b)
+    
+    let c = {};  // 新しいオブジェクト
+    c.name = a.name;
+    c.age = a.age;
+    c.name = 'Jiro';
+    c.age = 45;
+    console.log('a', a);
+    console.log('c', c);
+  </script>
+</body>
+</html>

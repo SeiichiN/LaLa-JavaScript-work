@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>参照</h1>
+  <script>
+    'use strict';
+    
+    {
+      let a = 'dog';
+      let b = a;     // 値がコピー・代入
+      b = 'cat';
+    }
+    
+    let a = ['dog', 'lion', 'bear'];
+    let b = a;      // aの場所情報
+    // a も b も同じものを指し示している
+    b[0] = 'cat';
+    console.log('a', a);
+    console.log('b', b)
+  </script>
+</body>
+</html>
