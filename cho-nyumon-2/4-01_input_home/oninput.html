@@ -18,7 +18,6 @@
   	<div class="container">
   	  <section>
   	    <input type="text" id="kotoba">
-  	    <p id="button">検索</p>
   	    <p id="output"></p>
   	  </section>
   	</div>
@@ -31,7 +30,7 @@
   <script>
     'use strict';
     
-    document.getElementById('button').onclick = function() {
+    document.getElementById('kotoba').oninput = function() {
       const search = document.getElementById('kotoba').value;
       document.getElementById('output').textContent = `「${search}」の検索中...`;
     };
