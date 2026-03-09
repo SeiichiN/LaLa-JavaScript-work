@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title></title>
+  </head>
+  <body>
+    <h1>つぶやく</h1>
+    <form action="" method="GET" id="mutterForm">
+      ひと言:<input type="text" name="mutter"/>
+      <input type="submit" value="つぶやく"/>
+    </form>
+    <hr/>
+    <ul id="mutterList">
+    </ul>
+    <script>
+    'use strict';
+
+     document.getElementById('mutterForm').onsubmit = function(e) {
+       e.preventDefault();
+       const mutter = document.getElementById('mutterForm').mutter.value;
+       const li = `<li>${mutter}</li>`;
+       const list = document.getElementById('mutterList');
+       list.insertAdjacentHTML('beforeend', li);
+     }
+    </script>
+  </body>
+</html>
+
+<!-- 修正時刻: Tue 2026/03/10 06:53:24 -->

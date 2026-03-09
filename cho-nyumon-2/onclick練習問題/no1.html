@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title></title>
+  </head>
+  <body>
+    <h1>おみくじ</h1>
+    <button id="btn">おみくじをひく</button>
+    <p id="output"></p>
+    <script>
+    'use strict';
+
+     document.getElementById('btn').onclick = function() {
+       const kuji = ['大吉', '中吉', '小吉', '末吉', '凶'];
+       const num = Math.floor(Math.random() * 5);
+       document.getElementById('output').textContent =
+         `あなたの運勢: ${kuji[num]}`;
+     }
+    </script>
+  </body>
+</html>
+
+<!-- 修正時刻: Tue 2026/03/10 06:53:24 -->
