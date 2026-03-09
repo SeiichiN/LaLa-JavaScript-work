@@ -9,7 +9,7 @@
   <style>
     table { border-collapse: collapse; }
     td    { border: solid 1px #444; padding: 5px 8px; }
-    #price::after {
+    .price::after {
       content: " 円";
     }
   </style>
@@ -24,13 +24,19 @@
   <main>
   	<div class="container">
   	  <section>
+
   	    <table>
-  	      <tr>
-  	        <td id="title"></td>
-  	        <td id="price"></td>
-  	        <td id="stock"></td>
-  	      </tr>
+  	      <thead>
+	  	      <tr>
+	  	        <th>タイトル</th>
+	  	        <th>値段</th>
+	  	        <th>在庫</th>
+	  	      </tr>
+	  	    </thead>
+  	      <tbody id="tbody">
+  	      </tbody>
   	    </table>
+
   	  </section>
   	</div>
   </main>
@@ -43,25 +49,25 @@
     'use strict';
 
     let books = [];
-		let jsbook = {};
-		
-		jsbook['title'] = prompt('本のタイトル');
-		jsbook['price'] = parseInt(prompt('値段'));
-		jsbook['stock'] = parseInt(prompt('冊数'));
-    books.push(jsbook);
-
-		jsbook['title'] = prompt('本のタイトル');
-		jsbook['price'] = parseInt(prompt('値段'));
-		jsbook['stock'] = parseInt(prompt('冊数'));
-    books.push(jsbook);
-
     
+    while (true) {
+			let jsbook = {};
+			jsbook['title'] = prompt('本のタイトル (q:終了)');
+			if (jsbook['title'] === 'q') { break; }
+			jsbook['price'] = parseInt(prompt('値段'));
+			jsbook['stock'] = parseInt(prompt('冊数'));
+	    books.push(jsbook);
+		}
+
     for (let book of books) {
+      let ele = '<tr>';
       for (let p in book) {
-        document.getElementById(p).textContent = book[p];
+        ele += `<td class="${p}">${book[p]}</td>`;
       }
+      ele += '</tr>';
+      document.getElementById('tbody')
+              .insertAdjacentHTML('beforeend', ele);
     }
-    
 
   </script>
 </body>
