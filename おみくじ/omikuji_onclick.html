@@ -4,12 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #btn {
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <h1>おみくじ</h1>
-  <form id="form">
-    <input type="submit" value="おみくじをひく">
-  </form>
+
+  <button id="btn">おみくじをひく</button>
+
   <hr>
   <p id="fortune"></p>
 	<script>
@@ -17,8 +22,7 @@
 	  
 	  let kuji = ['大吉', '中吉', '小吉', '末吉', '凶'];
 
-	  document.getElementById('form').onsubmit = function(e) {
-	    e.preventDefault();
+	  document.getElementById('btn').onclick = function() {
 	    let number = Math.floor(Math.random() * 5);
 	    document.getElementById('fortune')
 	            .textContent = kuji[number];
@@ -27,6 +31,3 @@
 	</script>
 </body>
 </html>
-
-
-<!-- 菫ｮ豁｣譎ょ綾: Thu 2026/03/05 17:00:41 -->
