@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+  	<div class="container">
+  		<h1>コンソールにアウトプット</h1>
+  		<h2>開発ツールを開く・閉じる</h2>
+  	</div>
+  </header>
+  <main>
+  	<div class="container">
+  	  <section>
+  	    <p>いまから<span id="timer"></span>以内に注文すると50％オフ！</p>
+  	  </section>
+  	</div>
+  </main>
+  <footer>
+  	<div class="container">
+  	  <p>JavaScript Sample</p>
+  	</div>
+  </footer>
+  <script>
+    'use strict';
+    
+    /**
+     * 期限まであと何日何時間何分何秒かを求める
+     * 引数: due -- 期限(Dateオブジェクト)
+     * 戻り値: count -- [日,時,分,秒]
+     */
+    function countdown(due) {
+      const now = new Date();
+      
+      //   期限まで何ミリ秒か
+      const rest = due.getTime() - now.getTime();
+      const sec = Math.floor(rest / 1000) % 60;
+               // ~~~~~~~~~~~~~~~~~~~~~~~   ~~~
+               //  期限まで何秒か           60秒
+      const min = Math.floor(rest / 1000 / 60) % 60;
+               // ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               //  期限まで何分か
+      const hours = Math.floor(rest / 1000 / 60 / 60) % 24;
+               // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               //  期限まで何時間か
+      const days = Math.floor(rest / 1000 / 60 / 60 / 24);
+               // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               //  期限まで何日か
+      const count = [days, hours, min, sec];
+               //   ~~~~~~~~~~~~~~~~~~~~~~~ 配列
+      
+      return count;
+    }
+    
+    let goal = new Date();
+    goal.setHours(23);
+    goal.setMinutes(59);
+    goal.setSeconds(59);
+    
+    function recalc() {
+      const counter = countdown(goal);
+      const time = `${counter[1]}時間${counter[2]}分${counter[3]}秒`;
+      document.getElementById('timer').textContent = time;
+      refresh();
+    }
+    
+    function refresh() {
+      // 1秒後に実行するよう、recalcを登録
+      setTimeout(recalc, 1000);
+    }
+    
+    recalc();
+  </script>
+</body>
+</html>
