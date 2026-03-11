@@ -7,7 +7,6 @@
 body {
 	margin: 0;
 	height: 100vh;
-  font-family: 'メイリオ', sans-serif;
 }
 
 .container {
@@ -47,10 +46,6 @@ h2 {
   padding: 5px 0 0 0;
   font-size: 14px;
   font-weight: normal;
-}
-
-section h2 {
-  color: #000;
 }
 
 main {
