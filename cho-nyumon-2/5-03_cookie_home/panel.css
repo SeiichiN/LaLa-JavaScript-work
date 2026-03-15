@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+#privacy-panel {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 20px 60px 20px 60px;
+    background: rgba(0, 0, 0, 0.75);
+
+    display: flex;
+    align-items: flex-start;
+}
+#privacy-panel p {
+    flex: 1 1 auto;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #ddd;
+}
+#agreebtn {
+    flex: 0 0 150px;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 32px;
+    font-size: 0.9rem;
+    background: #1aaedb;
+    color: #fff;
+}
+#agreebtn:hover {
+    background: #67C0DB;
+}
+#agreebtn:active {
+    background: #0FA4D1;
+}
