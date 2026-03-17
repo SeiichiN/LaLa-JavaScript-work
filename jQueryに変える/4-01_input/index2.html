@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+  	<div class="container">
+  		<h1>コンソールにアウトプット</h1>
+  		<h2>開発ツールを開く・閉じる</h2>
+  	</div>
+  </header>
+  <main>
+  	<div class="container">
+  	  <section>
+  	    <form action="#" id="form" method="GET">
+  	      本のタイトル:<input type="text" name="title"><br>
+  	      値段:<input type="text" name="price"><br>
+  	      <input type="submit" value="追加">
+  	    </form>
+  	    <hr>
+  	    <ul>
+  	      <li id="title"></li>
+  	      <li id="price"></li>
+  	    </ul>
+  	  </section>
+  	</div>
+  </main>
+  <footer>
+  	<div class="container">
+  	  <p>JavaScript Sample</p>
+  	</div>
+  </footer>
+  <script>
+    'use strict';
+    
+    document.getElementById('form').onsubmit = function(event) {
+      event.preventDefault();  // 遷移を止める
+      const title = document.getElementById('form').title.value;
+      const price = document.getElementById('form').price.value;
+      document.getElementById('title').textContent = title;
+      document.getElementById('price').textContent = price;
+    };
+  </script>
+</body>
+</html>
