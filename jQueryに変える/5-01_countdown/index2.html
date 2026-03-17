@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    section h2 {
+      color: #000;
+    }
+
+    .timer span {
+      font-size: 2em;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>コンソールにアウトプット</h1>
+      <h2>開発ツールを開く・閉じる</h2>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section>
+        <h2><span>知ってました？</span><br>
+          2028年オリンピックまで</h2>
+        <p class="timer">あと
+          <span id="day"></span>日
+          <span id="hour"></span>時間
+          <span id="min"></span>分
+          <span id="sec"></span>秒
+        </p>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>JavaScript Sample</p>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    'use strict';
+
+    $(function () {
+      /**
+       * 期限まであと何日何時間何分何秒かを求める
+       * 引数: due -- 期限(Dateオブジェクト)
+       * 戻り値: count -- [日,時,分,秒]
+       */
+      function countdown(due) {
+        const now = new Date();
+
+        //   期限まで何ミリ秒か
+        const rest = due.getTime() - now.getTime();
+        const sec = Math.floor(rest / 1000) % 60;
+        // ~~~~~~~~~~~~~~~~~~~~~~~   ~~~
+        //  期限まで何秒か           60秒
+        const min = Math.floor(rest / 1000 / 60) % 60;
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //  期限まで何分か
+        const hours = Math.floor(rest / 1000 / 60 / 60) % 24;
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //  期限まで何時間か
+        const days = Math.floor(rest / 1000 / 60 / 60 / 24);
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //  期限まで何日か
+        const count = [days, hours, min, sec];
+        //   ~~~~~~~~~~~~~~~~~~~~~~~ 配列
+
+        return count;
+      }  // countdown() end
+
+      let goal = new Date(2028, 6, 14);
+
+      function recalc() {
+        const counter = countdown(goal);
+        $('#day').text(counter[0]);
+        $('#hour').text(counter[1]);
+        $('#min').text(String(counter[2]).padStart(2, '0'));
+        $('#sec').text(String(counter[3]).padStart(2, '0'));
+        refresh();
+      }
+
+      function refresh() {
+        // 1秒後に実行するよう、recalcを登録
+        setTimeout(recalc, 1000);
+      }
+
+      recalc();
+    });  // jquery end
+
+
+
+
+  </script>
+</body>
+
+</html>

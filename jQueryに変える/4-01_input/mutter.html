@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title></title>
+  </head>
+  <body>
+    <h1>つぶやく</h1>
+    <form action="" method="GET" id="mutterForm">
+      ひと言:<input type="text" name="mutter"/>
+      <input type="submit" value="つぶやく"/>
+    </form>
+    <hr/>
+    <ul id="mutterList">
+    </ul>
+    <script>
+    'use strict';
+
+	   const $form = document.getElementById('mutterForm');
+	   
+     $form.onsubmit = function(e) {
+       e.preventDefault();
+       const hitokoto = $form.mutter.value;
+       const ele = `<li>${hitokoto}</li>`;
+       // p134
+       document.getElementById('mutterList')
+               .insertAdjacentHTML('afterbegin', ele);
+     };
+     
+     
+     
+     // "つぶやく"ボタンをクリックしたら、ul#mutterList に
+     // その内容が <li>つぶやいた内容</li> のHTML要素として
+     // 挿入されるようにしてください。
+     
+     
+    </script>
+  </body>
+</html>
+
+<!-- 修正時刻: Tue 2026/03/10 09:21:48 -->
