@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <header>
+  	<div class="container">
+  		<h1>コンソールにアウトプット</h1>
+  		<h2>開発ツールを開く・閉じる</h2>
+  	</div>
+  </header>
+  <main>
+  	<div class="container">
+  	  <section>
+        <p><button id="testbtn">テスト用 cookie削除</button></p>
+  	  </section>
+  	</div>
+  </main>
+  <footer>
+  	<div class="container">
+  	  <p>JavaScript Sample</p>
+  	</div>
+  </footer>
+  <div id="privacy-panel">
+    <p>当サイトではユーザーエクスペリエンス向上のためクッキーを使用しています。
+      また、匿名でアクセス状況のデータを収集しています。
+      詳しい情報は当サイトのプライバシーポリシーをご覧ください。</p>
+      <button id="agreebtn">承認する</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+  <script>
+    'use strict';
+
+    const agree = Cookies.get('cookie-agree');
+    const panel = document.getElementById('privacy-panel');
+
+    if (agree === 'yes') {
+      console.log('クッキーを確認しました');
+      document.body.removeChild(panel);
+    } else {
+      console.log('クッキーを確認できません');
+      document.getElementById('agreebtn').onclick = function() {
+        Cookies.set('cookie-agree', 'yes', {expires: 7});
+        document.body.removeChild(panel);
+      };
+    }
+
+    document.getElementById('testbtn').onclick = function() {
+      Cookies.remove('cookie-agree');
+    }
+  </script>
+</body>
+</html>
