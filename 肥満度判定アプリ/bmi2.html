@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title></title>
+  </head>
+  <body>
+    <h1>肥満度判定アプリ</h1>
+    身長：<input type="text" name="height"/>(cm)<br/>
+    体重：<input type="text" name="weight"/>(kg)<br/>
+    <button id="btn">判定</button>
+    <hr/>
+    <div>bmi指数: <span id="bmi"></span> </div>
+    <div>判定: <span id="hantei"></span> </div>
+    <script>
+    'use strict';
+
+     /*
+      * 小数点数をうけとって、小数第２位を四捨五入し、
+      * 小数点第１位までの数を返す関数
+      * 引数:
+      *   num -- 小数点の数
+      * 戻り値:
+      *   小数点第１位にまるめた数
+      */
+     function myround(num) {
+       let n = num * 10;
+       n = n + 0.5;
+       n = Math.floor(n);
+       return n / 10;
+     }
+     
+     /*
+      * 身長と体重からBMI指数を返す関数
+      *   bmi = 体重kg / (身長m × 身長m)
+      * 引数:
+      *   h -- 身長(cm) 小数点数(float型)
+      *   w -- 体重(kg) 小数点数(float型)
+      * 戻り値:
+      *   BMI指数(小数点第１位まで、第２位を四捨五入)
+      * 
+      */
+     function getBmi(h, w) {
+       let h_m = h / 100;
+       let bmi =  w / (h_m * h_m);
+       return myround(bmi);
+     }
+
+     /*
+      * bmi指数から肥満度を判定する関数
+      * 引数:
+      *   bmi -- bmi指数
+      * 戻り値:
+      *   文字列
+      * 基準
+      *          bmi < 18.5 => やせ型
+      *  18.5 <= bmi < 25.0 => 普通体型
+      *  25.0 <= bmi        => 肥満
+      */
+     function hantei(bmi) {
+       if (bmi < 18.5) {
+         return 'やせ型';
+       } else if (bmi < 25) {
+         return '普通体型';
+       } else {
+         return '肥満';
+       }       
+     }
+
+     /*
+      * 「判定」ボタンをクリックしたら、
+      * 身長欄と体重欄の数値を読み取って、
+      * getBmi() と hantei() を使って
+      * #bmi にBMI指数を、#hantei に判定結果を表示する。
+      */
+     document.getElementById('btn').onclick = function() {
+       let height = 
+         document.querySelector('input[name="height"]').value;
+       height = parseFloat(height);
+       let weight = 
+         document.querySelector('input[name="weight"]').value;
+       weight = parseFloat(weight);
+
+	     let bmi = getBmi(height, weight);
+	     let taikei = hantei(bmi);
+	     document.getElementById('bmi').textContent = bmi;
+	     document.getElementById('hantei').textContent = taikei;
+     };
+     
+    </script>
+  </body>
+</html>
+
+<!-- 修正時刻: Tue 2026/03/24 14:59:45 -->
