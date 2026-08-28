@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <h1>練習2-4</h1>
+  <p id="my-food">お好み焼き</p>
+  
+  <p id="today"></p>
+  
+  <script>
+    'use strict';
+    // (4)
+    console.log(document.getElementById('my-food'));
+    // (5)
+    console.log(document.getElementById('my-food').textContent);
+    // (6)
+    document.getElementById('my-food').textContent = 'ざるそば';
+    
+    document.getElementById('today').textContent = new Date();
+  </script>
+</body>
+</html>
