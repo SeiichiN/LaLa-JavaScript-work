@@ -1,0 +1,24 @@
+<html>
+<body>
+  <h1>年号を調べる</h1>
+  
+  <script>
+    'use strict';
+    
+    const year = parseInt(window.prompt('誕生年(西暦)を入力'));
+    console.log(year);
+    
+    if (year < 1926) {
+      alert('長生きですね');
+    } else if (year > 2026) {
+      alert('未来人ですね');
+    } else if (year < 1989) {
+      alert('昭和生まれです');
+    } else if (year < 2019) {
+      alert('平成生まれです');
+    } else {
+      alert('令和生まれです');
+    }
+  </script>
+</body>
+</html>

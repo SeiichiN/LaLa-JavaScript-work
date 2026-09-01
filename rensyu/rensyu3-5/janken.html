@@ -1,0 +1,24 @@
+<html>
+<body>
+  <h1>じゃんけん</h1>
+  
+  <script>
+    'use strict';
+    
+    const com = Math.floor(Math.random() * 3);
+    const user = parseInt(prompt('0:グー 1:チョキ 2:パー'));
+    let msg = 'user:' + user + '  com:' + com + "\n";
+    
+    if (user === com) {
+      msg = msg + 'あいこです';
+    } else if ((user === 0 && com === 1) ||
+               (user === 1 && com === 2) ||
+               (user === 2 && com === 0)) {
+      msg = msg + 'userの勝ちです';
+    } else {
+      msg = msg + 'comの勝ちです';
+    }
+    window.alert(msg);
+  </script>
+</body>
+</html>
