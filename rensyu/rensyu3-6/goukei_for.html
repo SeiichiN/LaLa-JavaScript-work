@@ -1,13 +1,19 @@
 <html>
 <body>
   <h1>for文</h1>
+  <p id="sum"></p>
   
   <script>
     'use strict';
-  
-    for (let i=0; i<5; i++) {
-      console.log(i);
+
+    const number = parseInt(prompt('数を入力'));
+  	let sum = 0;  // 合計を入れる
+  	
+    for (let i = 0; i <= number; i++) {
+      sum += i;   // sumに追加
     }
+    
+    document.getElementById('sum').textContent = '合計は' + sum;
   </script>
   
 </body>

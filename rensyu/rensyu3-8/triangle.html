@@ -1,0 +1,20 @@
+<html>
+<body>
+  <h1>三角形の面積</h1>
+  
+  <script>
+    'use strict';
+    
+    function triangle(teihen, takasa) {
+      return teihen * takasa / 2;
+    }
+    
+    const bottom = parseFloat(prompt('底辺(cm)'));
+    const height = parseFloat(prompt('高さ(cm)'));
+    const area = triangle(bottom, height);
+    let msg = '底辺 ' + bottom + 'cm、高さ ' + height + 'cmの面積は';
+    msg += (area + '平方センチメートル');
+    alert(msg);
+  </script>
+</body>
+</html>

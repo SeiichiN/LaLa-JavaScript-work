@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>コンソールにアウトプット</h1>
+      <h2>開発ツール</h2>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section>
+        <p id="output"></p>
+      </section>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>JavaScript Samples</p>
+    </div>
+  </footer>
+  
+  <script>
+    'use strict';
+    
+    /**
+     * 関数定義の実行
+     * totalという関数をブラウザに組み込む
+     * 関数を実行しているのではない。
+     * 呼び出されてはじめて実行する。
+     */
+    function total(price) {
+      const tax = 0.1;
+      return price + price * tax;
+    }
+    
+    // totalという関数を呼び出す
+    // ここではじめて関数が実行される
+    console.log('コーヒーメーカーの値段は' +
+                total(8000) + 
+                '円(税込)です');
+    document.getElementById('output').textContent = 
+                'コーヒーメーカーの値段は' +
+                total(8000) + 
+                '円(税込)です';
+
+  </script>
+</body>
+</html>

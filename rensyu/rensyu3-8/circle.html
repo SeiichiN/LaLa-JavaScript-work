@@ -1,0 +1,20 @@
+<html>
+<body>
+  <h1>円の面積</h1>
+  
+  <script>
+    'use strict';
+    
+    function circle(hankei) {
+      const menseki = hankei * hankei * Math.PI;
+      return Math.floor(menseki);
+    }
+    
+    const radius = parseFloat(prompt('円の半径(cm)'));
+    const area = circle(radius);
+    let msg = '半径' + radius + 'の円の面積は';
+    msg += area + '平方センチメートルです';
+    alert(msg);
+  </script>
+</body>
+</html>
