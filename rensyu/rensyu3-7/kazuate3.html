@@ -1,0 +1,28 @@
+<html>
+<body>
+  <h1>数当てゲーム・拡張版</h1>
+    
+  <script>
+    'use strict';
+    
+    const com = 1 + Math.floor(Math.random() * 99);
+    console.log('com:', com);
+    
+    let user = parseInt(window.prompt('1～99'));
+    while (user !== com) {
+	    let message;
+	    if (user === com) {
+	      message = 'あたり！';
+	    } else if (user < com) {
+	      message = '残念。もっと大きい';
+	    } else if (user > com) {
+	      message = '残念。もっと小さい';
+	    } else {
+	      message = '1～99の数字を入力してね';
+	    }
+	    window.alert(message);
+    }
+    window.alert('終わります');
+  </script>
+</body>
+</html>

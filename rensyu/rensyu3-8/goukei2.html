@@ -1,0 +1,25 @@
+<html>
+<body>
+  <h1>合計を求める</h1>
+  
+  <p>合計は <span id="sumId"></span></p>
+  
+  <script>
+    'use strict';
+    
+    function getSum(num) {
+	    let i = 1;
+	    let sum = 0;
+	    while (i <= num) {
+	      sum += i;
+	      i += 1;
+	    }
+	    return sum;
+    }
+    
+    const number = parseInt(prompt('適当な数'));
+    let sum = getSum(number);
+    document.getElementById('sumId').textContent = sum;
+  </script>
+</body>
+</html>
