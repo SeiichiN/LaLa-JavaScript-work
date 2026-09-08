@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title></title>
+  </head>
+  <body>
+    <h1></h1>
+    <section>
+      <table border="1">
+        <thead>
+        <tr>
+          <th>名前</th>
+          <th>値段</th>
+          <th>数量</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+      </table>
+    </section>
+    <script>
+     'use strict';
+
+     const products = [
+       {name: "りんご", price: 250, quantity: 5},
+       {name: "バナナ", price: 200, quantity: 2},
+       {name: "キウィ", price: 150, quantity: 3},
+     ];
+
+     for (const obj of products) {
+       let $tr = '<tr>';
+       for (const p in obj) {
+         $tr += `<td>${obj[p]}</td>`;
+       }
+       $tr += '</tr>';
+       document.getElementById('tbody')
+               .insertAdjacentHTML('beforeend', $tr);
+     }
+    </script>
+  </body>
+</html>
+
+<!-- 修正時刻: Fri 2026/09/04 13:19:49 -->
