@@ -1,0 +1,22 @@
+<html>
+<body>
+  <h1>四捨五入の問題</h1>
+  
+  <script>
+    'use strict';
+    
+    let val1 = 243.756754;
+    let val2 = Math.floor(val1 + 0.5);
+    console.log(val2);
+    
+    let tochu = val1 * 10 + 0.5;  // 2437.56754 + 0.5
+    let val3 = Math.floor(tochu) / 10;   // 243.8
+    
+    function myRound(n) {
+      let mid = n * 10 + 0.5;
+      return Math.floor(mid) / 10;
+    }
+    console.log(myRound(123.4567));
+  </script>
+</body>
+</html>

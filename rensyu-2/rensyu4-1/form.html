@@ -1,0 +1,27 @@
+<html>
+<body>
+  <h1>form</h1>
+  
+  <form action="" method="get" id="aiueo">
+    何かひと言<br>
+    <input type="text" name="kotoba"><br>
+    <input type="submit" value="つぶやく">
+  </form>
+  
+  <ul id="output">
+  </ul>
+  
+  <script>
+    'use strict';
+    
+    const formEle = document.getElementById('aiueo');
+    const output = document.getElementById('output');
+    
+    formEle.onsubmit = function(e){
+      e.preventDefault();
+      let word = formEle.kotoba.value;
+      output.insertAdjacentHTML('afterbegin', `<li>${word}</li>`);
+    };
+  </script>
+</body>
+</html>

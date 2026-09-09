@@ -1,0 +1,20 @@
+<html>
+<body>
+  <h1>現在時刻</h1>
+  <p>
+    <span id="hour"></span>時
+    <span id="min"></span>分
+  </p>
+  
+  <script>
+    'use strict';
+    
+    const now = new Date();
+    const hour = now.getHours();
+    const min = now.getMinutes();
+    
+    document.getElementById('hour').textContent = hour;
+    document.getElementById('min').textContent = min;
+  </script>
+</body>
+</html>
