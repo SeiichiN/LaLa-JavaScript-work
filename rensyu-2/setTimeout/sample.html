@@ -1,0 +1,24 @@
+<html>
+<body>
+  <h1>setTimeout</h1>
+  
+  <div id="output">
+  </div>
+
+  <script>
+    'use strict';
+    
+    function printWahaha() {
+      const word = '<p>わはは</p>';
+      document.getElementById('output').insertAdjacentHTML('beforeend', word);
+    	refresh();
+    }
+    
+    function refresh() {
+      setTimeout(printWahaha, 1000);
+    }
+    
+    printWahaha();
+  </script>
+</body>
+</html>

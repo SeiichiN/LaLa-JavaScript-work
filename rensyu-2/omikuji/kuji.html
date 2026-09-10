@@ -1,0 +1,27 @@
+<html>
+<body>
+  <h1>おみくじ</h1>
+  
+  <form id="form" action="">
+    <input type="submit" value="くじをひく">
+  </form>
+  
+  <div id="result"></div>
+  
+  <script>
+    'use strict';
+    
+    function myRand(min, max) {
+      return Math.floor(Math.random() * (max - min +1)) + min;
+    }
+    
+    document.getElementById('form').onsubmit = function(e) {
+      e.preventDefault();
+      let num = myRand(0, 4);
+      let omikuji = ['大吉', '中吉', '小吉', '末吉', '凶'];
+      let kekka = omikuji[num];
+      document.getElementById('result').textContent = kekka;
+    };
+  </script>
+</body>
+</html>
