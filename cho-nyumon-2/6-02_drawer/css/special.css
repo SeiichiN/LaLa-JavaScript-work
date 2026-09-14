@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+/* ===== style.css の上書き ===== */
+.container {
+  max-width: 100%;
+}
+img {
+  max-width: 100%;
+}
+
+/* ===== 機能の実装に必要なCSS ===== */
+
+/* ===== ヘッダーにボタンを配置 ===== */
+.header {
+  padding: 16px 0;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+}
+.title-block {
+  flex: 1 1 auto;  /* 拡大あり、縮小あり、幅自動 */
+}
+.hamburger {
+  flex: 0 0 32px;  /* 拡大なし、縮小なし、幅固定 */
+  align-self: center;
+  margin-left: 16px;
+  text-align: center;
+  color: #fff;
+}
+/* ===== 装飾的なCSS ===== */
