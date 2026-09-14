@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>DOM操作</h1>
+  <div id="box">
+  </div>
+  <button id="btn">表示</button>
+
+  <script>
+    'use strict';
+
+    const box = document.getElementById('box');
+    box.style.width = '200px';
+    box.style.height = '100px';
+    box.style.backgroundColor = '#ff0';
+    box.style.border = 'solid 1px blue';
+    
+    document.getElementById('btn').onclick = function(){
+      box.style.display = 'block';
+    };
+    box.onclick = function(){
+      box.style.display = 'none';
+    };
+  </script>
+</body>
+</html>
