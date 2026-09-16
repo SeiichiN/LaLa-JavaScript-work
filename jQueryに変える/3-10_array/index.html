@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>コンソールにアウトプット</h1>
+      <h2>開発ツール</h2>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section>
+        <h1>やることリスト</h1>
+        <ul id="list">
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container" id="cp">
+      <p>JavaScript Samples</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"
+    integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+  <script>
+    'use strict';
+
+    $(function () {
+      let todo = [
+        'デザインカンプ作成',
+        'データ整理',
+        '勉強会申し込み',
+        '牛乳買う',
+      ];
+      todo.push('歯医者にいく', '自転車にのる');
+      
+      for (let item of todo) {
+        const li = `<li>${item}</li>`;
+        $('#list').append(li);
+      }
+
+      const cp = '<small>&copy; Seiichi Nukayama</small>';
+      $('#cp').append(cp);
+    });
+
+  </script>
+</body>
+
+</html>
