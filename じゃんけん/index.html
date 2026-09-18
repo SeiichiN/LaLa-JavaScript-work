@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1>じゃんけんゲーム</h1>
+  </header>
+  <main>
+    <section class="select-area">
+      <img src="images/gu.png" id="gu" data-hand="0">
+      <img src="images/choki.png" id="choki" data-hand="1">
+      <img src="images/pa.png" id="pa" data-hand="2">
+    </section>
+    <section id="hand"></section>
+    <section id="result"></section>
+  </main>
+  <footer>
+    <small>&copy; 2026 Seiichi Nukayama</small>
+  </footer>
+  <script>
+    'use strict';
+
+    function showHand() {
+      const hands = ['グー', 'チョキ', 'パー'];
+      const msg = `あなたは${hands[user]}、わたしは${hands[com]}`;
+      document.getElementById('hand').textContent = msg;
+    }
+
+    function judge() {
+      let result;
+      if (user === com) {
+        result = 'あいこです';
+      } else if ((user+1)%3 === com) {
+        result = 'あなたの勝ちです';
+      } else {
+        result = 'わたしの勝ちです';
+      }
+      document.getElementById('result').textContent = result;
+    }
+
+    function setCom() {
+      com = Math.floor(Math.random() * 3);
+    }
+
+    function syori(){
+      user = parseInt(user);
+      setCom();
+      judge();
+      showHand();
+    }
+
+    let user;
+    let com;
+    document.getElementById('gu').onclick = function(){
+      user = this.dataset.hand;
+      syori();
+    };
+    document.getElementById('choki').onclick = function(){
+      user = this.dataset.hand;
+      syori();
+    };
+    document.getElementById('pa').onclick = function(){
+      user = this.dataset.hand;
+      syori();
+    };
+    
+  </script>
+</body>
+</html>
